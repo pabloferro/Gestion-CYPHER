@@ -1,0 +1,129 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Data;
+using System.Text.RegularExpressions;
+using System.Configuration;
+
+namespace Clinica_Frba.DAO
+{
+    class SqlConnector
+    {   
+        private static string connectionString = "User id=gd;Password=gd2013;Server=localhost\\SQLSERVER2008;Trusted_Connection=yes;database=GD2C2013;connection timeout=10";
+        private static SqlConnection conn = new SqlConnection(connectionString);
+        
+        public static void Connect()
+        {
+            conn.Open(); 
+            
+        }
+        public static void Close()
+        {
+            conn.Close();
+
+        }
+   
+        public static DataTable callProcedure(string procedure, params object[] values)
+        {
+            List<string> args = generateArguments(procedure);
+            SqlCommand cmd = new SqlCommand("CYPHER."+procedure,conn);
+            cmd.CommandType=CommandType.StoredProcedure;
+            
+            for (int i = 0; i < args.Count(); i++)
+            {
+                cmd.Parameters.AddWithValue(args[i], values[i]);
+            }
+            
+            return retrieveDataTable(cmd);
+        }
+
+        public static DataTable retrieveDataTable(SqlCommand cmd)
+        {
+            DataTable dt= new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            da.Dispose();
+            return dt;
+        }
+        
+        private static List<string> generateArguments(string procedure)
+        {
+            SqlCommand cm = new SqlCommand(procedure,conn);
+            SqlDataReader dr;
+            DataTable dt = new DataTable();
+            List<string> args = new List<string>();
+            
+            cm.CommandType = CommandType.Text;
+            cm.CommandText = "SELECT PARAMETER_NAME FROM information_schema.parameters WHERE SPECIFIC_SCHEMA='CYPHER' AND SPECIFIC_NAME='" + procedure + "'";
+            dr = cm.ExecuteReader();
+            dt.Load(dr);
+            foreach (DataRow d in dt.Rows)
+            {
+               args.Add(d[0].ToString());
+            }
+            return args;
+        }
+
+        /*table = Nombre de la tabla 
+         *columns = Nombre de las columnas ej: "col1, col2, col3"
+         *params = Valores en orden
+         */
+        public static void insert(string table, string columns, params object[] values)
+        {
+            String args = "("; int a=1;
+            foreach(object val in values)
+            {
+                args+= "@" + a.ToString() + ",";
+                a++;
+            }
+            args = args.Substring(0, args.Length - 1);
+            args += ")";
+            SqlCommand cmd = new SqlCommand("INSERT INTO CYPHER." + table + " (" + columns + ") values " + args, conn);
+            for (int i = 1; i <= values.Length; i++)
+            {
+                cmd.Parameters.AddWithValue("@" + i.ToString(), values[i-1]);
+            }
+            cmd.ExecuteNonQuery();
+        }
+
+        /*table = Nombre de la tabla 
+         *columns = Nombre de las columnas ej: "col1, col2, col3"
+         *params = Valores en orden
+         */
+        public static void update(string table, string pkColumn, object pk, string[] columns, params object[] values)
+        {
+            String args = ""; int a = 0;
+            foreach (string col in columns)
+            {
+                args += col + " = " + values[a].ToString() + ",";   
+                a++;
+            }
+            args = args.Substring(0, args.Length - 1);
+            SqlCommand cmd = new SqlCommand("UPDATE CYPHER." + table + " SET " + args + 
+                                            " WHERE " + pkColumn + "=" + pk.ToString(), conn);
+            cmd.ExecuteNonQuery();
+        }
+
+        //Igual que el insert y devuelve la PK del registro insertado
+        public static object insertGetKey(string table, string columns, params object[] values)
+        {
+            insert(table, columns, values);
+            SqlCommand cmd = new SqlCommand("SELECT @@IDENTITY", conn);
+            return cmd.ExecuteScalar();
+        }
+
+        public static DataTable select(string consulta)
+        {
+            SqlCommand cm = new SqlCommand(consulta, conn);
+            SqlDataReader dr;
+            DataTable dt = new DataTable();
+
+            dr = cm.ExecuteReader();
+            dt.Load(dr);
+            return dt;
+        }
+    }
+}
