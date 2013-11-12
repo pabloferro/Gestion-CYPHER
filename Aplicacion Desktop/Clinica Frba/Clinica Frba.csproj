@@ -59,6 +59,7 @@
     <Compile Include="DAO\DAORol.cs" />
     <Compile Include="DAO\SqlConnector.cs" />
     <Compile Include="DAO\DAOUser.cs" />
+    <Compile Include="Lectura Ini\IniFile.cs" />
     <Compile Include="PrincipalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +218,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Archivo Configuracion.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Clinica_Frba.Abm_de_Afiliado.Afiliado.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

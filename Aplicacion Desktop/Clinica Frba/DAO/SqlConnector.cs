@@ -7,12 +7,22 @@ using System.Windows.Forms;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using System.IO;
+using Ini;
 
 namespace Clinica_Frba.DAO
 {
     class SqlConnector
-    {   
-        private static string connectionString = "User id=gd;Password=gd2013;Server=localhost\\SQLSERVER2008;Trusted_Connection=yes;database=GD2C2013;connection timeout=10";
+    {
+        private static IniFile file = new IniFile(Path.GetFullPath("Archivo Configuracion.ini"));
+
+        private static string connectionString = "User id=" + file.IniReadValue("connection", "id") +
+            ";Password=" + file.IniReadValue("connection", "pass") +
+            ";Server=" + file.IniReadValue("connection", "server") +
+            ";Trusted_Connection=yes" +
+            ";database=" + file.IniReadValue("connection", "database") +
+            ";connection timeout=10";
+
         private static SqlConnection conn = new SqlConnection(connectionString);
         
         public static void Connect()
