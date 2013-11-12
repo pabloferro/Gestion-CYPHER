@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Clinica_Frba.DAO;
 using Clinica_Frba;
+using System.Security.Cryptography;
 
 namespace Clinica_Frba.Login
 {
@@ -28,17 +29,30 @@ namespace Clinica_Frba.Login
             login();
         }
 
+        static string sha256(string password)
+        {
+            SHA256Managed crypt = new SHA256Managed();
+            string hash = String.Empty;
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
+            foreach (byte bit in crypto)
+            {
+                hash += bit.ToString("x2");
+            }
+            return hash;
+        }
+
         private void login()
         {
             String usuario = textBox_usuario.Text;
-            String pass = textBox_password.Text;
+            String pass = sha256(textBox_password.Text);
 
-
-            if (!DAOUser.CorrectLogin(usuario, pass)) label_error.Text = "Login Incorrecto";
+            
+            if (DAOUser.CorrectLogin(usuario, pass)==0) label_error.Text = "Login Incorrecto";
+            else if (DAOUser.CorrectLogin(usuario, pass)==-1) label_error.Text = "Usuario Desabilitado";
             else
             {
                 this.Hide();
-                new PrincipalWindow(usuario, 1).ShowDialog();
+                new LoginRolWindow(usuario).ShowDialog();
                 this.Close();
             }
         }

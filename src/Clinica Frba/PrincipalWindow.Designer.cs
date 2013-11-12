@@ -61,7 +61,7 @@
             this.label_Titulo.AutoSize = true;
             this.label_Titulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_Titulo.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Titulo.Location = new System.Drawing.Point(218, 21);
+            this.label_Titulo.Location = new System.Drawing.Point(145, 21);
             this.label_Titulo.Name = "label_Titulo";
             this.label_Titulo.Size = new System.Drawing.Size(112, 28);
             this.label_Titulo.TabIndex = 1;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 566);
+            this.ClientSize = new System.Drawing.Size(424, 278);
             this.Controls.Add(this.button_usuario);
             this.Controls.Add(this.button_atencion);
             this.Controls.Add(this.button_llegada);

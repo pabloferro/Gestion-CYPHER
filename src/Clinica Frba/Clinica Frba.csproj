@@ -60,6 +60,12 @@
     <Compile Include="DAO\SqlConnector.cs" />
     <Compile Include="DAO\DAOUser.cs" />
     <Compile Include="Lectura Ini\IniFile.cs" />
+    <Compile Include="Login\LoginRolWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LoginRolWindow.Designer.cs">
+      <DependentUpon>LoginRolWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrincipalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listados Estadisticos\EstadisticasWindow.resx">
       <DependentUpon>EstadisticasWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginRolWindow.resx">
+      <DependentUpon>LoginRolWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedir Turno\PedirTurnoWindow.resx">
       <DependentUpon>PedirTurnoWindow.cs</DependentUpon>
