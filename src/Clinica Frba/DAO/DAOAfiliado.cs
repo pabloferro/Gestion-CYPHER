@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ini;
+using System.IO;
+using System.Globalization;
 
 namespace Clinica_Frba.DAO
 {
     public class DAOAfiliado : DAOAfiliadoNew
     {
+
+        public static void baja(int nro)
+        {
+            string[] columnasBaja = { "AFIL_ACTIVO", "AFIL_FECHABAJA" };
+            DateTime fecha = DateTime.ParseExact(new IniFile(Path.GetFullPath("Archivo Configuracion.ini")).IniReadValue("time", "fechaComienzo"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columnasBaja, 0, fecha);
+        }
 
         private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_DNI", "AFIL_MAIL", 
                                            "AFIL_DIRE", "AFIL_PLAN", "AFIL_TELEFONO"};
@@ -21,8 +31,8 @@ namespace Clinica_Frba.DAO
 
         public override void save()
         {
-            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, "'" + apellido + "'",
-                                "'" + nombre + "'", dni, "'" + email + "'", "'" + direccion + "'", plan, telefono);
+            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, apellido, nombre, dni,
+                                                                email, direccion, plan, telefono);
         }
     }
 }

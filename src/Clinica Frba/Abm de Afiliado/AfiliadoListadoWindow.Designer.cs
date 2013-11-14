@@ -38,6 +38,7 @@
             this.dtgAfiliados = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAlta = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAfiliados)).BeginInit();
             this.SuspendLayout();
@@ -133,7 +134,7 @@
             // 
             // btnAlta
             // 
-            this.btnAlta.Location = new System.Drawing.Point(147, 409);
+            this.btnAlta.Location = new System.Drawing.Point(325, 409);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(129, 27);
             this.btnAlta.TabIndex = 5;
@@ -141,11 +142,23 @@
             this.btnAlta.UseVisualStyleBackColor = true;
             this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
+            // btnBaja
+            // 
+            this.btnBaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBaja.Location = new System.Drawing.Point(147, 409);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(172, 27);
+            this.btnBaja.TabIndex = 6;
+            this.btnBaja.Text = "Dar de Baja Seleccionado";
+            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            // 
             // AfiliadoListadoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 448);
+            this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dtgAfiliados);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAlta;
+        private System.Windows.Forms.Button btnBaja;
     }
 }

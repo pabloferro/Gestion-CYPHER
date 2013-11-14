@@ -105,15 +105,19 @@ namespace Clinica_Frba.DAO
          */
         public static void update(string table, string pkColumn, object pk, string[] columns, params object[] values)
         {
-            String args = ""; int a = 0;
+            String args = ""; int a = 1;
             foreach (string col in columns)
             {
-                args += col + " = " + values[a].ToString() + ",";   
+                args += col + " = @" + a + ",";   
                 a++;
             }
             args = args.Substring(0, args.Length - 1);
             SqlCommand cmd = new SqlCommand("UPDATE CYPHER." + table + " SET " + args + 
                                             " WHERE " + pkColumn + "=" + pk.ToString(), conn);
+            for (int i = 1; i <= values.Length; i++)
+            {
+                cmd.Parameters.AddWithValue("@" + i.ToString(), values[i - 1]);
+            }
             cmd.ExecuteNonQuery();
         }
 

@@ -24,7 +24,7 @@ namespace Clinica_Frba.Abm_de_afiliado
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
             String filters = "";
             filters += " AFIL_NOMBRE like '%" + txtNombre.Text + "%'";
             filters += " AND ";
@@ -66,5 +66,12 @@ namespace Clinica_Frba.Abm_de_afiliado
         {
             new Abm_de_Afiliado.Afiliado(new DAOAfiliadoNew()).ShowDialog(this);
         }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            if (dtgAfiliados.SelectedRows.GetEnumerator().MoveNext())
+                DAOAfiliado.baja((int)dtgAfiliados.SelectedRows[0].Cells["Numero"].Value);
+        }
+
     }
 }
