@@ -13,11 +13,6 @@ namespace Clinica_Frba.DAO
                                        + "AFIL_FECHANAC 'Fecha Nacimiento', AFIL_TELEFONO Telefono "
                                        + "FROM CIPHER.AFILIADO";
 
-        public static System.Data.DataTable getAfiliados(params object[] values)
-        {
-            return SqlConnector.callProcedure("GETAFILIADOS", values);
-        }
-
         public static DataTable select(String filtersString)
         {
             if (filtersString != "")

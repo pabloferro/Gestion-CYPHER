@@ -43,8 +43,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPlan = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.NumericTextBox();
-            this.txtPlan = new System.Windows.Forms.NumericTextBox();
             this.txtDni = new System.Windows.Forms.NumericTextBox();
             this.SuspendLayout();
             // 
@@ -183,6 +183,15 @@
             this.txtEmail.Size = new System.Drawing.Size(221, 20);
             this.txtEmail.TabIndex = 4;
             // 
+            // txtPlan
+            // 
+            this.txtPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPlan.FormattingEnabled = true;
+            this.txtPlan.Location = new System.Drawing.Point(62, 185);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.Size = new System.Drawing.Size(218, 21);
+            this.txtPlan.TabIndex = 18;
+            // 
             // txtTelefono
             // 
             this.txtTelefono.AllowSpace = false;
@@ -190,15 +199,6 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(221, 20);
             this.txtTelefono.TabIndex = 6;
-            // 
-            // txtPlan
-            // 
-            this.txtPlan.AllowSpace = false;
-            this.txtPlan.Location = new System.Drawing.Point(62, 184);
-            this.txtPlan.Name = "txtPlan";
-            this.txtPlan.Size = new System.Drawing.Size(221, 20);
-            this.txtPlan.TabIndex = 7;
-            this.txtPlan.TextChanged += new System.EventHandler(this.txtPlan_TextChanged);
             // 
             // txtDni
             // 
@@ -213,6 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 278);
+            this.Controls.Add(this.txtPlan);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label8);
@@ -223,7 +224,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPlan);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label3);
@@ -247,7 +247,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericTextBox txtDni;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericTextBox txtPlan;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDireccion;
@@ -259,5 +258,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.ComboBox txtPlan;
     }
 }

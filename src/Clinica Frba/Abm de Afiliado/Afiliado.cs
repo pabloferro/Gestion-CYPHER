@@ -24,6 +24,12 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtApellido.Enabled = false;
             txtDni.Text = afiliado.dni.ToString();
             txtDni.Enabled = false;
+            txtPlan.Items.Clear();
+            DataTable planes = DAOPlan.getPlanes();
+            foreach (DataRow row in planes.Rows)
+            {
+                txtPlan.Items.Add(row["PLAN_CODIGO"]);
+            }
             txtPlan.Text = afiliado.plan.ToString();
             txtEmail.Text = afiliado.email;
             txtDireccion.Text = afiliado.direccion;
@@ -86,7 +92,7 @@ namespace Clinica_Frba.Abm_de_Afiliado
             afiliado.nombre = txtNombre.Text;
             afiliado.apellido = txtApellido.Text;
             afiliado.dni = txtDni.DecimalValue;
-            afiliado.plan = txtPlan.DecimalValue;
+            afiliado.plan = Decimal.Parse(txtPlan.Text);
             afiliado.email = txtEmail.Text;
             afiliado.direccion = txtDireccion.Text;
             afiliado.telefono = txtTelefono.DecimalValue;
