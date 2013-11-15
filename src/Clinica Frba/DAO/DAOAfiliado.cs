@@ -14,8 +14,7 @@ namespace Clinica_Frba.DAO
         public static void baja(int nro)
         {
             string[] columnasBaja = { "AFIL_ACTIVO", "AFIL_FECHABAJA" };
-            DateTime fecha = DateTime.ParseExact(new IniFile(Path.GetFullPath("Archivo Configuracion.ini")).IniReadValue("time", "fechaComienzo"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columnasBaja, 0, fecha);
+            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columnasBaja, 0, SqlConnector.fecha);
         }
 
         private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_DNI", "AFIL_MAIL", 

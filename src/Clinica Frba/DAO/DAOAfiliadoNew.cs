@@ -11,7 +11,7 @@ namespace Clinica_Frba.DAO
         public const string selectFrom = "SELECT AFIL_NROAFILIADO Numero, AFIL_APELLIDO Apellido, AFIL_NOMBRE Nombre, "
                                        + "AFIL_DNI DNI, AFIL_MAIL Email, AFIL_DIRE Direccion, AFIL_PLAN 'Plan', "
                                        + "AFIL_FECHANAC 'Fecha Nacimiento', AFIL_TELEFONO Telefono "
-                                       + "FROM CYPHER.AFILIADO";
+                                       + "FROM CIPHER.AFILIADO";
 
         public static System.Data.DataTable getAfiliados(params object[] values)
         {

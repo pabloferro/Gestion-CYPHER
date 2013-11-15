@@ -39,12 +39,14 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAlta = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
+            this.chkInactivos = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAfiliados)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkInactivos);
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombre);
@@ -153,6 +155,16 @@
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
+            // chkInactivos
+            // 
+            this.chkInactivos.AutoSize = true;
+            this.chkInactivos.Location = new System.Drawing.Point(11, 76);
+            this.chkInactivos.Name = "chkInactivos";
+            this.chkInactivos.Size = new System.Drawing.Size(69, 17);
+            this.chkInactivos.TabIndex = 4;
+            this.chkInactivos.Text = "Inactivos";
+            this.chkInactivos.UseVisualStyleBackColor = true;
+            // 
             // AfiliadoListadoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,5 +200,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Button btnBaja;
+        private System.Windows.Forms.CheckBox chkInactivos;
     }
 }

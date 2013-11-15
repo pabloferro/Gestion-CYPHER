@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Configuration;
 using System.IO;
 using Ini;
+using System.Globalization;
 
 namespace Clinica_Frba.DAO
 {
@@ -39,7 +40,7 @@ namespace Clinica_Frba.DAO
         public static DataTable callProcedure(string procedure, params object[] values)
         {
             List<string> args = generateArguments(procedure);
-            SqlCommand cmd = new SqlCommand("CYPHER."+procedure,conn);
+            SqlCommand cmd = new SqlCommand("CIPHER."+procedure,conn);
             cmd.CommandType=CommandType.StoredProcedure;
             
             for (int i = 0; i < args.Count(); i++)
@@ -67,7 +68,7 @@ namespace Clinica_Frba.DAO
             List<string> args = new List<string>();
             
             cm.CommandType = CommandType.Text;
-            cm.CommandText = "SELECT PARAMETER_NAME FROM information_schema.parameters WHERE SPECIFIC_SCHEMA='CYPHER' AND SPECIFIC_NAME='" + procedure + "'";
+            cm.CommandText = "SELECT PARAMETER_NAME FROM information_schema.parameters WHERE SPECIFIC_SCHEMA='CIPHER' AND SPECIFIC_NAME='" + procedure + "'";
             dr = cm.ExecuteReader();
             dt.Load(dr);
             foreach (DataRow d in dt.Rows)
@@ -91,7 +92,7 @@ namespace Clinica_Frba.DAO
             }
             args = args.Substring(0, args.Length - 1);
             args += ")";
-            SqlCommand cmd = new SqlCommand("INSERT INTO CYPHER." + table + " (" + columns + ") values " + args, conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO CIPHER." + table + " (" + columns + ") values " + args, conn);
             for (int i = 1; i <= values.Length; i++)
             {
                 cmd.Parameters.AddWithValue("@" + i.ToString(), values[i-1]);
@@ -112,7 +113,7 @@ namespace Clinica_Frba.DAO
                 a++;
             }
             args = args.Substring(0, args.Length - 1);
-            SqlCommand cmd = new SqlCommand("UPDATE CYPHER." + table + " SET " + args + 
+            SqlCommand cmd = new SqlCommand("UPDATE CIPHER." + table + " SET " + args + 
                                             " WHERE " + pkColumn + "=" + pk.ToString(), conn);
             for (int i = 1; i <= values.Length; i++)
             {
@@ -147,5 +148,7 @@ namespace Clinica_Frba.DAO
             
             return dt;
         }
+
+        public static DateTime fecha = DateTime.ParseExact(new IniFile(Path.GetFullPath("Archivo Configuracion.ini")).IniReadValue("time", "fechaComienzo"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
     }
 }

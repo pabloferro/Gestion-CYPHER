@@ -23,7 +23,7 @@ namespace Clinica_Frba.DAO
 
         public static DataTable getRoles(string usuario)
         {
-            return SqlConnector.select("select ROL_NOMBRE,ROL_CODIGO from CYPHER.ROLES_POR_USUARIO JOIN CYPHER.ROL ON ROLUS_ROL=ROL_CODIGO  AND ROLUS_USUARIO='"+usuario+"'");
+            return SqlConnector.select("select ROL_NOMBRE,ROL_CODIGO from CIPHER.ROLES_POR_USUARIO JOIN CIPHER.ROL ON ROLUS_ROL=ROL_CODIGO  AND ROLUS_USUARIO='"+usuario+"'");
         }
     }
 }

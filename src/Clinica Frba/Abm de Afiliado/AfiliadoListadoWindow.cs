@@ -29,6 +29,12 @@ namespace Clinica_Frba.Abm_de_afiliado
             filters += " AFIL_NOMBRE like '%" + txtNombre.Text + "%'";
             filters += " AND ";
             filters += "AFIL_APELLIDO like '%" + txtApellido.Text + "%'";
+            filters += " AND ";
+            if (chkInactivos.Checked)
+                filters += "AFIL_ACTIVO = 0";
+            else
+                filters += "AFIL_ACTIVO = 1";
+
             dtgAfiliados.DataSource = DAOAfiliadoNew.select(filters);
         }
 
@@ -40,6 +46,7 @@ namespace Clinica_Frba.Abm_de_afiliado
                 if (t is TextBox)
                     t.Text = "";
             }
+            chkInactivos.Checked = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
