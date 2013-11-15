@@ -159,11 +159,11 @@ CREATE TABLE CIPHER.MEDICAMENTO_POR_RECETA(
 GO
 
 ----------MIGRACION
-declare @time dateTime
-declare @s nvarchar(255)
-set @s=(select * from openrowset (bulk N'C:\Users\Pablo\Documents\GitHub\Gestion-CYPHER\src\Clinica Frba\Archivo Configuracion.ini',single_clob) as contents)
-set @s=RIGHT(@s,10)
-set @time=CONVERT(datetime,@s,103)
+--declare @time dateTime
+--declare @s nvarchar(255)
+--set @s=(select * from openrowset (bulk N'C:\Archivo Configuracion.ini',single_clob) as contents)
+--set @s=RIGHT(@s,10)
+--set @time=CONVERT(datetime,@s,103)
 
 
 --Carga de los distintos planes
