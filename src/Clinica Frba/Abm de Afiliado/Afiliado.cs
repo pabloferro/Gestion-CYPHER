@@ -45,7 +45,13 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtDni.Text = "";
-            txtPlan.Text = "";
+            txtPlan.Items.Clear();
+            DataTable planes = DAOPlan.getPlanes();
+            foreach (DataRow row in planes.Rows)
+            {
+                txtPlan.Items.Add(row["PLAN_CODIGO"]);
+            }
+            txtPlan.Text = txtPlan.Items[0].ToString();
             txtEmail.Text = "";
             txtDireccion.Text = "";
             txtTelefono.Text = "";
