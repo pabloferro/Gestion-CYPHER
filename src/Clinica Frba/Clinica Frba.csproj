@@ -241,6 +241,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Varios\DialogResult.cs" />
     <Compile Include="Varios\NumericTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

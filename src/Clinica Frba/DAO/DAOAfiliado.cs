@@ -5,6 +5,8 @@ using System.Text;
 using Ini;
 using System.IO;
 using System.Globalization;
+using Clinica_Frba.Varios;
+using System.Windows.Forms;
 
 namespace Clinica_Frba.DAO
 {
@@ -18,12 +20,12 @@ namespace Clinica_Frba.DAO
         }
 
         private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_DNI", "AFIL_MAIL", 
-                                           "AFIL_DIRE", "AFIL_PLAN", "AFIL_TELEFONO"};
+                                           "AFIL_DIRE", "AFIL_TELEFONO"};
         public int nro;
-
+        public decimal plan_anterior;
         public DAOAfiliado(int _nro, int _plan, bool _activo, string _nombre, string _apellido, Decimal _dni, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono)
         {
-            nro = _nro; plan = _plan; activo = _activo; nombre = _nombre; apellido = _apellido;
+            nro = _nro; plan = _plan; plan_anterior = _plan; activo = _activo; nombre = _nombre; apellido = _apellido;
             dni = _dni; direccion = _direccion; email = _email; fechaNacimiento = _fechaNacimiento;
             telefono = _telefono;
         }
@@ -31,7 +33,13 @@ namespace Clinica_Frba.DAO
         public override void save()
         {
             SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, apellido, nombre, dni,
-                                                                email, direccion, plan, telefono);
+                                                                email, direccion, telefono);
+            if (plan != plan_anterior)
+            {
+                string motivo = "";
+                InputBox.Show("Cambio de Plan", "Motivo:", ref motivo);
+                SqlConnector.callProcedure("CAMBIARPLAN", nro, plan, SqlConnector.fecha, motivo);
+            }
         }
     }
 }
