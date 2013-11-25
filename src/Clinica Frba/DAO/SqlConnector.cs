@@ -78,6 +78,14 @@ namespace Clinica_Frba.DAO
             return args;
         }
 
+
+        public static object callScalarFunction(string function)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT CIPHER." + function + "()", conn);
+            return cmd.ExecuteScalar();
+        }
+
+
         /*table = Nombre de la tabla 
          *columns = Nombre de las columnas ej: "col1, col2, col3"
          *params = Valores en orden

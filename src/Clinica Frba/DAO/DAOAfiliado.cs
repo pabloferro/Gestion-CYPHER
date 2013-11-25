@@ -20,20 +20,19 @@ namespace Clinica_Frba.DAO
         }
 
         private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_DNI", "AFIL_MAIL", 
-                                           "AFIL_DIRE", "AFIL_TELEFONO"};
-        public int nro;
+                                           "AFIL_DIRE", "AFIL_TELEFONO", "AFIL_ESTADOCIVIL", "AFIL_CANTFAMILIARES"};
         public decimal plan_anterior;
-        public DAOAfiliado(int _nro, int _plan, bool _activo, string _nombre, string _apellido, Decimal _dni, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono)
+        public DAOAfiliado(int _nro, int _plan, bool _activo, string _nombre, string _apellido, Decimal _dni, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono, string _estadoCivil, int _cantFamiliares)
         {
             nro = _nro; plan = _plan; plan_anterior = _plan; activo = _activo; nombre = _nombre; apellido = _apellido;
             dni = _dni; direccion = _direccion; email = _email; fechaNacimiento = _fechaNacimiento;
-            telefono = _telefono;
+            telefono = _telefono; estadoCivil = _estadoCivil; cantFamiliares = _cantFamiliares;
         }
 
         public override void save()
         {
             SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, apellido, nombre, dni,
-                                                                email, direccion, telefono);
+                                                                email, direccion, telefono, estadoCivil, cantFamiliares);
             if (plan != plan_anterior)
             {
                 string motivo = "";

@@ -36,6 +36,10 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtTelefono.Text = afiliado.telefono.ToString();
             dtpFechaNacimiento.Value = afiliado.fechaNacimiento;
             dtpFechaNacimiento.Enabled = false;
+            txtEstadoCivil.Text = afiliado.estadoCivil;
+            txtEstadoCivil.Enabled = false;
+            txtCantFamiliares.Text = afiliado.cantFamiliares.ToString();
+            txtCantFamiliares.Enabled = false;
         }
 
         public Afiliado(DAOAfiliadoNew afiliado)
@@ -56,41 +60,13 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtDireccion.Text = "";
             txtTelefono.Text = "";
             dtpFechaNacimiento.Value = DateTime.Today;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Afiliado_Load(object sender, EventArgs e)
-        {
-
+            txtEstadoCivil.Text = "Soltero/a";
+            txtCantFamiliares.Text = "0";
         }
 
         public DAOAfiliadoNew getAfiliado()
         {
             return afiliado;
-        }
-
-        private void txtPlan_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaNacimiento_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -103,6 +79,8 @@ namespace Clinica_Frba.Abm_de_Afiliado
             afiliado.direccion = txtDireccion.Text;
             afiliado.telefono = txtTelefono.DecimalValue;
             afiliado.fechaNacimiento = dtpFechaNacimiento.Value;
+            afiliado.cantFamiliares = txtCantFamiliares.IntValue;
+            afiliado.estadoCivil = txtEstadoCivil.Text;
             afiliado.save();
             this.Close();
         }
@@ -112,5 +90,9 @@ namespace Clinica_Frba.Abm_de_Afiliado
             this.Close();
         }
 
+        private void Afiliado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -64,7 +64,9 @@ namespace Clinica_Frba.Abm_de_afiliado
                     (string)selectedRow.Cells["Direccion"].Value,
                     (string)selectedRow.Cells["Email"].Value,
                     (DateTime)selectedRow.Cells["Fecha Nacimiento"].Value,
-                    (Decimal)selectedRow.Cells["Telefono"].Value);
+                    (Decimal)selectedRow.Cells["Telefono"].Value,
+                    selectedRow.Cells["Estado Civil"].Value.ToString(),
+                    (int)selectedRow.Cells["Cant Familiares"].Value);
                 new Abm_de_Afiliado.Afiliado(afiliado).ShowDialog(this);
             }
         }

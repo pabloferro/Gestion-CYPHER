@@ -54,6 +54,7 @@
     <Compile Include="Abm de Afiliado\Afiliado.Designer.cs">
       <DependentUpon>Afiliado.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DAOAfiliadoFamiliar.cs" />
     <Compile Include="DAO\DAOAfiliadoNew.cs" />
     <Compile Include="DAO\DAOAfiliado.cs" />
     <Compile Include="DAO\DAOPlan.cs" />
