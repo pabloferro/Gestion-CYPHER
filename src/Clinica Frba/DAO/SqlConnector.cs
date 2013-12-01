@@ -73,11 +73,28 @@ namespace Clinica_Frba.DAO
             dt.Load(dr);
             foreach (DataRow d in dt.Rows)
             {
-               args.Add(d[0].ToString());
+               if (d[0].ToString()!="")
+                args.Add(d[0].ToString());
             }
             return args;
         }
 
+
+        public static object callScalarFunctionWithArguments(string function, params object[] values)
+        {
+            
+            List<string> args = generateArguments(function);
+            SqlCommand cmd = new SqlCommand("CIPHER." + function, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            for (int i = 0; i < args.Count(); i++)
+            {
+                cmd.Parameters.AddWithValue(args[i], values[i]);
+            }
+            cmd.Parameters.Add("@RETURN_VALUE", SqlDbType.Variant).Direction = ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+            return cmd.Parameters["@RETURN_VALUE"].Value; 
+        }
 
         public static object callScalarFunction(string function)
         {

@@ -131,7 +131,29 @@ namespace Clinica_Frba.Registrar_Agenda
                 if (habilitado[i].Checked)
                     DAOAgenda.guardarDia(txtNumero.IntValue, i + 1, desde[i].Value, hasta[i].Value);
             }
+            crearTurnosDisponibles(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
             this.Close();
+        }
+
+        public void crearTurnosDisponibles(int nroMedico, DateTime fInicial, DateTime fFinal)
+        {
+            DateTime d = SqlConnector.fecha;
+            while (d <= fFinal)
+            {
+                //DayOfWeek 0-Do 1-Lu..6-Sa
+                int day = (int)d.DayOfWeek - 1;
+                if (d.DayOfWeek != DayOfWeek.Sunday)
+                    if (habilitado[day].Checked)
+                    {
+                        DateTime hora = desde[day].Value;
+                        while (hora < hasta[day].Value)
+                        {
+                            DAOAgenda.turnoDisponible(nroMedico, d, hora);
+                            hora = hora.AddMinutes(30);
+                        }
+                    }
+                d = d.AddDays(1);
+            }
         }
     }
 }

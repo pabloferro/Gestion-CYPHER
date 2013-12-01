@@ -1,0 +1,5 @@
+--TODO--
+*  Hacer un form para buscar un profesional
+*  Generar turnos disponibles para los migrados (cómo?) //en la fecha de los turnos está la hora! TUDI_FECHA no tiene que tener horas ni minutos
+*  En TURNO_DISPONIBLE los 3 campos podrían ser la PK
+*  Validaciones? Ej: que exista el afiliado que pide el turno
