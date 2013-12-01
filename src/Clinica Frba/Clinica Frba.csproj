@@ -57,6 +57,7 @@
     <Compile Include="DAO\DAOAfiliadoFamiliar.cs" />
     <Compile Include="DAO\DAOAfiliadoNew.cs" />
     <Compile Include="DAO\DAOAfiliado.cs" />
+    <Compile Include="DAO\DAOAgenda.cs" />
     <Compile Include="DAO\DAOPlan.cs" />
     <Compile Include="DAO\DAORol.cs" />
     <Compile Include="DAO\SqlConnector.cs" />

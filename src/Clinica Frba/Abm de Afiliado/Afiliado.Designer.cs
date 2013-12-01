@@ -50,12 +50,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtCantFamiliares = new System.Windows.Forms.NumericTextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.rdbF = new System.Windows.Forms.RadioButton();
+            this.rdbM = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -78,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 34);
+            this.label2.Location = new System.Drawing.Point(9, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
@@ -87,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 59);
+            this.label3.Location = new System.Drawing.Point(9, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 4;
@@ -96,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 248);
+            this.label4.Location = new System.Drawing.Point(8, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 6;
@@ -105,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 173);
+            this.label5.Location = new System.Drawing.Point(8, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 8;
@@ -113,7 +116,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(62, 194);
+            this.txtDireccion.Location = new System.Drawing.Point(65, 225);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(221, 20);
             this.txtDireccion.TabIndex = 7;
@@ -121,7 +124,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 197);
+            this.label7.Location = new System.Drawing.Point(8, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 12;
@@ -130,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 222);
+            this.label6.Location = new System.Drawing.Point(8, 253);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 14;
@@ -178,7 +181,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(62, 170);
+            this.txtEmail.Location = new System.Drawing.Point(65, 201);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(221, 20);
             this.txtEmail.TabIndex = 6;
@@ -187,7 +190,7 @@
             // 
             this.txtPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtPlan.FormattingEnabled = true;
-            this.txtPlan.Location = new System.Drawing.Point(62, 246);
+            this.txtPlan.Location = new System.Drawing.Point(65, 277);
             this.txtPlan.Name = "txtPlan";
             this.txtPlan.Size = new System.Drawing.Size(218, 21);
             this.txtPlan.TabIndex = 9;
@@ -195,7 +198,7 @@
             // txtTelefono
             // 
             this.txtTelefono.AllowSpace = false;
-            this.txtTelefono.Location = new System.Drawing.Point(62, 219);
+            this.txtTelefono.Location = new System.Drawing.Point(65, 250);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(221, 20);
             this.txtTelefono.TabIndex = 8;
@@ -218,7 +221,7 @@
             "Viudo/a",
             "Concubinato",
             "Divorciado/a"});
-            this.txtEstadoCivil.Location = new System.Drawing.Point(80, 109);
+            this.txtEstadoCivil.Location = new System.Drawing.Point(83, 140);
             this.txtEstadoCivil.Name = "txtEstadoCivil";
             this.txtEstadoCivil.Size = new System.Drawing.Size(201, 21);
             this.txtEstadoCivil.TabIndex = 4;
@@ -226,7 +229,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 111);
+            this.label9.Location = new System.Drawing.Point(9, 142);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 19;
@@ -235,7 +238,7 @@
             // txtCantFamiliares
             // 
             this.txtCantFamiliares.AllowSpace = false;
-            this.txtCantFamiliares.Location = new System.Drawing.Point(136, 144);
+            this.txtCantFamiliares.Location = new System.Drawing.Point(139, 175);
             this.txtCantFamiliares.Name = "txtCantFamiliares";
             this.txtCantFamiliares.Size = new System.Drawing.Size(147, 20);
             this.txtCantFamiliares.TabIndex = 5;
@@ -243,17 +246,51 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 147);
+            this.label10.Location = new System.Drawing.Point(9, 178);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 13);
             this.label10.TabIndex = 22;
             this.label10.Text = "Cant Familiares a Cargo";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Sexo";
+            // 
+            // rdbF
+            // 
+            this.rdbF.AutoSize = true;
+            this.rdbF.Checked = true;
+            this.rdbF.Location = new System.Drawing.Point(51, 116);
+            this.rdbF.Name = "rdbF";
+            this.rdbF.Size = new System.Drawing.Size(31, 17);
+            this.rdbF.TabIndex = 24;
+            this.rdbF.TabStop = true;
+            this.rdbF.Text = "F";
+            this.rdbF.UseVisualStyleBackColor = true;
+            // 
+            // rdbM
+            // 
+            this.rdbM.AutoSize = true;
+            this.rdbM.Location = new System.Drawing.Point(86, 116);
+            this.rdbM.Name = "rdbM";
+            this.rdbM.Size = new System.Drawing.Size(34, 17);
+            this.rdbM.TabIndex = 25;
+            this.rdbM.Text = "M";
+            this.rdbM.UseVisualStyleBackColor = true;
+            // 
             // Afiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 342);
+            this.ClientSize = new System.Drawing.Size(295, 343);
+            this.Controls.Add(this.rdbM);
+            this.Controls.Add(this.rdbF);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtCantFamiliares);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtEstadoCivil);
@@ -278,7 +315,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Afiliado";
             this.Text = "Afiliado";
-            this.Load += new System.EventHandler(this.Afiliado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +344,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericTextBox txtCantFamiliares;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton rdbF;
+        private System.Windows.Forms.RadioButton rdbM;
     }
 }

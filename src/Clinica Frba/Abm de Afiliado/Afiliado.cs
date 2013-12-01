@@ -37,9 +37,21 @@ namespace Clinica_Frba.Abm_de_Afiliado
             dtpFechaNacimiento.Value = afiliado.fechaNacimiento;
             dtpFechaNacimiento.Enabled = false;
             txtEstadoCivil.Text = afiliado.estadoCivil;
-            txtEstadoCivil.Enabled = false;
             txtCantFamiliares.Text = afiliado.cantFamiliares.ToString();
             txtCantFamiliares.Enabled = false;
+            if (afiliado.sexo == 'X')
+            {
+                MessageBox.Show("El afiliado actual es migrado, debe completar el estado civil y el sexo.");
+                afiliado.sexo = 'F';
+                rdbF.Checked = true;
+                txtEstadoCivil.Text = txtEstadoCivil.Items[0].ToString();
+            }
+            else
+            {
+                rdbF.Checked = afiliado.sexo == 'F';
+                rdbM.Checked = afiliado.sexo == 'M';
+            }
+
         }
 
         public Afiliado(DAOAfiliadoNew afiliado)
@@ -62,6 +74,7 @@ namespace Clinica_Frba.Abm_de_Afiliado
             dtpFechaNacimiento.Value = DateTime.Today;
             txtEstadoCivil.Text = "Soltero/a";
             txtCantFamiliares.Text = "0";
+            rdbF.Checked = true;
         }
 
         public DAOAfiliadoNew getAfiliado()
@@ -81,6 +94,10 @@ namespace Clinica_Frba.Abm_de_Afiliado
             afiliado.fechaNacimiento = dtpFechaNacimiento.Value;
             afiliado.cantFamiliares = txtCantFamiliares.IntValue;
             afiliado.estadoCivil = txtEstadoCivil.Text;
+            if (rdbF.Checked)
+                afiliado.sexo = 'F';
+            else
+                afiliado.sexo = 'M';
             afiliado.save();
             this.Close();
         }
@@ -88,11 +105,6 @@ namespace Clinica_Frba.Abm_de_Afiliado
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Afiliado_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
