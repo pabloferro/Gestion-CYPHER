@@ -20,5 +20,15 @@ namespace Clinica_Frba.Cancelar_Atencion
         {
 
         }
+
+        private void btnPaciente_Click(object sender, EventArgs e)
+        {
+            new CancelacionPacienteWindow().ShowDialog(this);
+        }
+
+        private void btnMedico_Click(object sender, EventArgs e)
+        {
+            new CancelacionMedicoWindow().ShowDialog(this);
+        }
     }
 }

@@ -28,20 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnPaciente = new System.Windows.Forms.Button();
+            this.btnMedico = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // btnPaciente
+            // 
+            this.btnPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaciente.Location = new System.Drawing.Point(12, 12);
+            this.btnPaciente.Name = "btnPaciente";
+            this.btnPaciente.Size = new System.Drawing.Size(204, 35);
+            this.btnPaciente.TabIndex = 0;
+            this.btnPaciente.Text = "Por Paciente";
+            this.btnPaciente.UseVisualStyleBackColor = true;
+            this.btnPaciente.Click += new System.EventHandler(this.btnPaciente_Click);
+            // 
+            // btnMedico
+            // 
+            this.btnMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedico.Location = new System.Drawing.Point(13, 65);
+            this.btnMedico.Name = "btnMedico";
+            this.btnMedico.Size = new System.Drawing.Size(204, 35);
+            this.btnMedico.TabIndex = 1;
+            this.btnMedico.Text = "Por Médico";
+            this.btnMedico.UseVisualStyleBackColor = true;
+            this.btnMedico.Click += new System.EventHandler(this.btnMedico_Click);
+            // 
+            // CancelacionWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(229, 118);
+            this.Controls.Add(this.btnMedico);
+            this.Controls.Add(this.btnPaciente);
+            this.Name = "CancelacionWindow";
+            this.Text = "Cancelar Atención Médica";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnPaciente;
+        private System.Windows.Forms.Button btnMedico;
     }
 }

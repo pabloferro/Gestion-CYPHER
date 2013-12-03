@@ -54,6 +54,18 @@
     <Compile Include="Abm de Afiliado\Afiliado.Designer.cs">
       <DependentUpon>Afiliado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionMedicoWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionMedicoWindow.Designer.cs">
+      <DependentUpon>CancelacionMedicoWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPacienteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPacienteWindow.Designer.cs">
+      <DependentUpon>CancelacionPacienteWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compra de Bono\ConfimarCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +203,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Rol\RolWindow.resx">
       <DependentUpon>RolWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionMedicoWindow.resx">
+      <DependentUpon>CancelacionMedicoWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionPacienteWindow.resx">
+      <DependentUpon>CancelacionPacienteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cancelar Atencion\CancelacionWindow.resx">
       <DependentUpon>CancelacionWindow.cs</DependentUpon>

@@ -7,11 +7,18 @@ using System.IO;
 using System.Globalization;
 using Clinica_Frba.Varios;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Clinica_Frba.DAO
 {
     public class DAOAfiliado : DAOAfiliadoNew
     {
+
+        public static DataTable turnosAsignados(int nro)
+        {
+            //Le sumo uno a la fecha por el día de antelación
+            return SqlConnector.callProcedure("TURNOSASIGNADOS", nro, SqlConnector.fecha.AddDays(1));
+        }
 
         public static void baja(int nro)
         {
