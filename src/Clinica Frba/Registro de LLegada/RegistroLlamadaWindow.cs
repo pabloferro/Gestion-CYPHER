@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Clinica_Frba.DAO;
 
 namespace Clinica_Frba.Registro_de_llegada
 {
@@ -16,9 +17,10 @@ namespace Clinica_Frba.Registro_de_llegada
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnVer_Click(object sender, EventArgs e)
         {
-
+            dtgTurnos.DataSource = DAOAgenda.turnosHoy(txtNroMedico.IntValue);
+            dtgTurnos.Columns["Código"].Visible = false;
         }
     }
 }

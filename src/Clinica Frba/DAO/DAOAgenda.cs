@@ -60,6 +60,11 @@ namespace Clinica_Frba.DAO
             SqlConnector.callProcedure("CANCELARTURNOMEDICO", medico, fInicial, 
                                        SqlConnector.fecha.AddDays(-1), fFinal, motivo);
         }
+
+        internal static DataTable turnosHoy(int medico)
+        {
+            return SqlConnector.callProcedure("TURNOSMEDICOFECHA", medico, SqlConnector.fecha);
+        }
     }
 }
 
