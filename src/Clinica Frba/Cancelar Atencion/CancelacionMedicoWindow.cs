@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clinica_Frba.DAO;
+using Clinica_Frba.Varios;
 
 namespace Clinica_Frba.Cancelar_Atencion
 {
@@ -40,12 +41,36 @@ namespace Clinica_Frba.Cancelar_Atencion
             dtpFecha.MaxDate = SqlConnector.fecha.AddDays(-1);
             dtpFecha.Value = dtpFecha.MaxDate;
             dtpFechaFinal.MinDate = dtpFecha.Value;
-            dtpFechaFinal.MaxDate = SqlConnector.fecha.AddDays(-1);
+            //dtpFechaFinal.MaxDate = SqlConnector.fecha.AddDays(-1);
         }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
             dtpFechaFinal.MinDate = dtpFecha.Value;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            string motivo = "";
+            InputBox.Show("Cancelación", "Motivo:", ref motivo);
+            if (rdbRango.Checked)
+                DAOAgenda.cancelarTurnos(txtNroMedico.IntValue, dtpFecha.Value, dtpFechaFinal.Value, motivo);
+            else
+                DAOAgenda.cancelarTurnos(txtNroMedico.IntValue, dtpFecha.Value, dtpFecha.Value, motivo);
+            MessageBox.Show("Turnos cancelados");
+        }
+
+        private void dtpFechaFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaFinal.Value > SqlConnector.fecha.AddDays(-1))
+                MessageBox.Show("Seleccionó una fecha de hoy o posterior. " +
+                                "Se cancelarán SOLO los turnos que tengan un día de antelación. " +
+                                "Se respetará el rango para la cancelación de la Agenda", "Atención");
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

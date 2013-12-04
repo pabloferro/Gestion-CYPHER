@@ -48,5 +48,10 @@ namespace Clinica_Frba.DAO
                 SqlConnector.callProcedure("CAMBIARPLAN", nro, plan, SqlConnector.fecha, motivo);
             }
         }
+
+        public static void cancelarTurno(int codigo, string motivo)
+        {
+            SqlConnector.callProcedure("CANCELARTURNOPACIENTE", codigo, motivo);
+        }
     }
 }

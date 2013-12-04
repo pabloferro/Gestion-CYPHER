@@ -54,6 +54,12 @@ namespace Clinica_Frba.DAO
         {
             return (bool)SqlConnector.callScalarFunctionWithArguments("ATIENDEDIA", medico, dia);
         }
+
+        internal static void cancelarTurnos(int medico, DateTime fInicial, DateTime fFinal, string motivo)
+        {
+            SqlConnector.callProcedure("CANCELARTURNOMEDICO", medico, fInicial, 
+                                       SqlConnector.fecha.AddDays(-1), fFinal, motivo);
+        }
     }
 }
 

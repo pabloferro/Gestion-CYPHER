@@ -35,8 +35,9 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFechaFinal = new System.Windows.Forms.Label();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
-            this.txtNroMedico = new System.Windows.Forms.NumericTextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtNroMedico = new System.Windows.Forms.NumericTextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -112,6 +113,17 @@
             this.dtpFechaFinal.TabIndex = 72;
             this.dtpFechaFinal.Value = new System.DateTime(2013, 5, 1, 0, 0, 0, 0);
             this.dtpFechaFinal.Visible = false;
+            this.dtpFechaFinal.ValueChanged += new System.EventHandler(this.dtpFechaFinal_ValueChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(10, 149);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(112, 24);
+            this.btnCancelar.TabIndex = 74;
+            this.btnCancelar.Text = "Cancelar Turnos";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtNroMedico
             // 
@@ -121,20 +133,22 @@
             this.txtNroMedico.Size = new System.Drawing.Size(116, 20);
             this.txtNroMedico.TabIndex = 67;
             // 
-            // btnCancelar
+            // btnSalir
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(44, 153);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(135, 24);
-            this.btnCancelar.TabIndex = 74;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(135, 149);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 75;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // CancelacionMedicoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(224, 183);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblFechaFinal);
             this.Controls.Add(this.dtpFechaFinal);
@@ -163,5 +177,6 @@
         private System.Windows.Forms.Label lblFechaFinal;
         private System.Windows.Forms.DateTimePicker dtpFechaFinal;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

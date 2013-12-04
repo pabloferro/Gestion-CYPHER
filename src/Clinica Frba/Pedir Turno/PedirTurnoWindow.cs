@@ -66,8 +66,8 @@ namespace Clinica_Frba.Pedir_Turno
                         }
                     }
                 }
-            }
-            MessageBox.Show("Debe seleccionar un turno");
+            }else
+                MessageBox.Show("Debe seleccionar un turno");
         }
     }
 }
