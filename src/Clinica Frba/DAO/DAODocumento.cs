@@ -34,7 +34,7 @@ namespace Clinica_Frba.DAO
 
         public static bool afiliadoDocumentoValido(int tipo, Decimal nro)
         {
-            return ((int)SqlConnector.callScalarFunctionWithArguments("AFILIADODOCUMENTOVALIDO", tipo, nro) == 1);
+            return ((bool)SqlConnector.callScalarFunctionWithArguments("AFILIADODOCUMENTOVALIDO", tipo, nro));
         }
     }
 }

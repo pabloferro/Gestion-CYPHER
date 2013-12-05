@@ -48,7 +48,6 @@
             this.btnSalir.TabIndex = 81;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnVer
             // 
@@ -125,7 +124,6 @@
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 85;
             this.label3.Text = "BONO CONSULTA";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // RegistroLlegadaWindow
             // 
