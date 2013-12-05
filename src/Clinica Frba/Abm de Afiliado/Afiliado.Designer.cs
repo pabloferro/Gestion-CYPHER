@@ -326,7 +326,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Afiliado";
             this.Text = "Afiliado";
-            this.Load += new System.EventHandler(this.Afiliado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -19,7 +19,9 @@ namespace Clinica_Frba.Abm_de_afiliado
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            DAOPlan.llenarCombo(cmbPlan);
+            cmbPlan.Items.Add("TODOS");
+            cmbPlan.Text = "TODOS";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -29,10 +31,27 @@ namespace Clinica_Frba.Abm_de_afiliado
             filters += " AND ";
             filters += "AFIL_APELLIDO like '%" + txtApellido.Text + "%'";
             filters += " AND ";
+            filters += "AFIL_MAIL like '%" + txtEmail.Text + "%'";
+            filters += " AND ";
             if (chkInactivos.Checked)
                 filters += "AFIL_ACTIVO = 0";
             else
                 filters += "AFIL_ACTIVO = 1";
+            if (cmbPlan.Text != "TODOS")
+            {
+                filters += " AND ";
+                filters += "AFIL_PLAN = " + cmbPlan.Text;
+            }
+            if (txtNroDocumento.Text != "")
+            {
+                filters += " AND ";
+                filters += "AFIL_DOCUMENTO = " + txtNroDocumento.Text;
+            }
+            if (txtTelefono.Text != "")
+            {
+                filters += " AND ";
+                filters += "AFIL_TELEFONO = " + txtTelefono.Text;
+            }
 
             dtgAfiliados.DataSource = DAOAfiliadoNew.select(filters);
             dtgAfiliados.Columns["A"].Visible = false;
@@ -46,6 +65,7 @@ namespace Clinica_Frba.Abm_de_afiliado
                 if (t is TextBox)
                     t.Text = "";
             }
+            cmbPlan.Text = "TODOS";
             chkInactivos.Checked = false;
         }
 
@@ -57,7 +77,7 @@ namespace Clinica_Frba.Abm_de_afiliado
                 DAOAfiliado afiliado = new DAOAfiliado(
                     (int)selectedRow.Cells["Numero"].Value,
                     (int)selectedRow.Cells["Plan"].Value,
-                    (bool)((int)selectedRow.Cells["A"].Value==1),
+                    (bool)selectedRow.Cells["A"].Value,
                     (string)selectedRow.Cells["Nombre"].Value,
                     (string)selectedRow.Cells["Apellido"].Value,
                     DAODocumento.codigo(selectedRow.Cells["Tipo Doc"].Value.ToString()),
@@ -71,6 +91,8 @@ namespace Clinica_Frba.Abm_de_afiliado
                     (char)selectedRow.Cells["Sexo"].Value.ToString().ToCharArray()[0]);
                 new Abm_de_Afiliado.Afiliado(afiliado).ShowDialog(this);
             }
+            else
+                MessageBox.Show("Seleccione un afiliado");
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -81,8 +103,12 @@ namespace Clinica_Frba.Abm_de_afiliado
         private void btnBaja_Click(object sender, EventArgs e)
         {
             if (dtgAfiliados.SelectedRows.GetEnumerator().MoveNext())
+            {
                 DAOAfiliado.baja((int)dtgAfiliados.SelectedRows[0].Cells["Numero"].Value);
+                MessageBox.Show("Afiliado dado de baja");
+            }
+            else
+                MessageBox.Show("Seleccione un afiliado");
         }
-
     }
 }

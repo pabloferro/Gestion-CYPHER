@@ -9,14 +9,19 @@ using System.Windows.Forms;
 
 namespace Clinica_Frba.Abm_de_Profesional
 {
-    public partial class ProfesionalWindow : Form
+    public partial class ProfesionalListadoWindow : Form
     {
-        public ProfesionalWindow()
+        public ProfesionalListadoWindow()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
         {
 
         }

@@ -25,8 +25,8 @@ namespace Clinica_Frba.DAO
 
         internal static void llenarCombo(System.Windows.Forms.ComboBox cmbTipoDocumento)
         {
-            DataTable planes = DAODocumento.getTiposDocumento();
-            foreach (DataRow row in planes.Rows)
+            DataTable documentos = DAODocumento.getTiposDocumento();
+            foreach (DataRow row in documentos.Rows)
             {
                 cmbTipoDocumento.Items.Add(row["TIDO_NOMBRE"]);
             }

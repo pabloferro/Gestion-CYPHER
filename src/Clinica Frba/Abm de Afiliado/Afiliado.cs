@@ -67,11 +67,7 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtPlan.Items.Clear();
             DAODocumento.llenarCombo(cmbTipoDocumento);
             cmbTipoDocumento.Text = cmbTipoDocumento.Items[0].ToString();
-            DataTable planes = DAOPlan.getPlanes();
-            foreach (DataRow row in planes.Rows)
-            {
-                txtPlan.Items.Add(row["PLAN_CODIGO"]);
-            }
+            DAOPlan.llenarCombo(txtPlan);
             txtPlan.Text = txtPlan.Items[0].ToString();
             txtEmail.Text = "";
             txtDireccion.Text = "";
@@ -124,11 +120,6 @@ namespace Clinica_Frba.Abm_de_Afiliado
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Afiliado_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
