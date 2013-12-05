@@ -55,7 +55,7 @@ namespace Clinica_Frba
             switch(funcionalidad)
             {
                 case "Roles": new Abm_de_Rol.RolWindow().ShowDialog(); break;
-               // case "Afiliados": new Abm_de_afiliado.AfiliadoListadoWindow.ShowDialog(); break;
+                case "Afiliados": new Abm_de_afiliado.AfiliadoListadoWindow().ShowDialog(); break;
                 case "Profesionales": new Abm_de_Profesional.ProfesionalWindow().ShowDialog(); break;
                 case "Especialidades": new Abm_de_Especialidades_Medicas.EspecialidadesWindow().ShowDialog(); break;
                 case "Planes": new Abm_de_Planes.PlanesWindow().ShowDialog(); break;

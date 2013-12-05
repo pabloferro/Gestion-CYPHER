@@ -53,5 +53,20 @@ namespace Clinica_Frba.DAO
         {
             SqlConnector.callProcedure("CANCELARTURNOPACIENTE", codigo, motivo);
         }
+
+        public static int turnoEnFecha(int medico, int afiliado)
+        {
+            return (int)SqlConnector.callScalarFunctionWithArguments("TURNOENFECHAAFILIADO", medico, afiliado, SqlConnector.fecha);
+        }
+
+        public static bool bonoValido(int afiliado, int bono)
+        {
+            return (bool)SqlConnector.callScalarFunctionWithArguments("AFILIADOBONOVALIDO", afiliado, bono, SqlConnector.fecha);
+        }
+
+        public static void registrarLlegada(int afiliado, int turno, int bono)
+        {
+            SqlConnector.callProcedure("REGISTRARLLEGADA", afiliado, turno, bono);
+        }
     }
 }
