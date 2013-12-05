@@ -22,8 +22,11 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtNombre.Enabled = false;
             txtApellido.Text = afiliado.apellido;
             txtApellido.Enabled = false;
-            txtDni.Text = afiliado.dni.ToString();
-            txtDni.Enabled = false;
+            DAODocumento.llenarCombo(cmbTipoDocumento);
+            cmbTipoDocumento.Text = DAODocumento.nombre(afiliado.tipoDocumento);
+            cmbTipoDocumento.Enabled = false;
+            txtNroDocumento.Text = afiliado.documento.ToString();
+            txtNroDocumento.Enabled = false;
             txtPlan.Items.Clear();
             DataTable planes = DAOPlan.getPlanes();
             foreach (DataRow row in planes.Rows)
@@ -60,8 +63,10 @@ namespace Clinica_Frba.Abm_de_Afiliado
             InitializeComponent();
             txtNombre.Text = "";
             txtApellido.Text = "";
-            txtDni.Text = "";
+            txtNroDocumento.Text = "";
             txtPlan.Items.Clear();
+            DAODocumento.llenarCombo(cmbTipoDocumento);
+            cmbTipoDocumento.Text = cmbTipoDocumento.Items[0].ToString();
             DataTable planes = DAOPlan.getPlanes();
             foreach (DataRow row in planes.Rows)
             {
@@ -86,7 +91,8 @@ namespace Clinica_Frba.Abm_de_Afiliado
         {
             afiliado.nombre = txtNombre.Text;
             afiliado.apellido = txtApellido.Text;
-            afiliado.dni = txtDni.DecimalValue;
+            afiliado.tipoDocumento = DAODocumento.codigo(cmbTipoDocumento.Text);
+            afiliado.documento = txtNroDocumento.DecimalValue;
             afiliado.plan = Decimal.Parse(txtPlan.Text);
             afiliado.email = txtEmail.Text;
             afiliado.direccion = txtDireccion.Text;
@@ -98,8 +104,15 @@ namespace Clinica_Frba.Abm_de_Afiliado
                 afiliado.sexo = 'F';
             else
                 afiliado.sexo = 'M';
-            afiliado.save();
-            this.Close();
+            if (DAODocumento.afiliadoDocumentoValido(afiliado.tipoDocumento, afiliado.documento))
+            {
+                afiliado.save();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ya hay un afiliado con ese tipo y número de documento");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

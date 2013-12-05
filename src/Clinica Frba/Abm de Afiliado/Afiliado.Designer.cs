@@ -45,7 +45,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPlan = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.NumericTextBox();
-            this.txtDni = new System.Windows.Forms.NumericTextBox();
+            this.txtNroDocumento = new System.Windows.Forms.NumericTextBox();
             this.txtEstadoCivil = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCantFamiliares = new System.Windows.Forms.NumericTextBox();
@@ -53,6 +53,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.rdbF = new System.Windows.Forms.RadioButton();
             this.rdbM = new System.Windows.Forms.RadioButton();
+            this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -92,9 +93,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "DNI";
+            this.label3.Text = "Documento";
             // 
             // label4
             // 
@@ -203,13 +204,13 @@
             this.txtTelefono.Size = new System.Drawing.Size(221, 20);
             this.txtTelefono.TabIndex = 8;
             // 
-            // txtDni
+            // txtNroDocumento
             // 
-            this.txtDni.AllowSpace = false;
-            this.txtDni.Location = new System.Drawing.Point(62, 56);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(221, 20);
-            this.txtDni.TabIndex = 2;
+            this.txtNroDocumento.AllowSpace = false;
+            this.txtNroDocumento.Location = new System.Drawing.Point(123, 56);
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Size = new System.Drawing.Size(160, 20);
+            this.txtNroDocumento.TabIndex = 2;
             // 
             // txtEstadoCivil
             // 
@@ -283,11 +284,21 @@
             this.rdbM.Text = "M";
             this.rdbM.UseVisualStyleBackColor = true;
             // 
+            // cmbTipoDocumento
+            // 
+            this.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoDocumento.FormattingEnabled = true;
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(72, 56);
+            this.cmbTipoDocumento.Name = "cmbTipoDocumento";
+            this.cmbTipoDocumento.Size = new System.Drawing.Size(45, 21);
+            this.cmbTipoDocumento.TabIndex = 26;
+            // 
             // Afiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 343);
+            this.Controls.Add(this.cmbTipoDocumento);
             this.Controls.Add(this.rdbM);
             this.Controls.Add(this.rdbF);
             this.Controls.Add(this.label11);
@@ -307,7 +318,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.txtNroDocumento);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.label2);
@@ -327,7 +338,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericTextBox txtDni;
+        private System.Windows.Forms.NumericTextBox txtNroDocumento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -348,5 +359,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton rdbF;
         private System.Windows.Forms.RadioButton rdbM;
+        private System.Windows.Forms.ComboBox cmbTipoDocumento;
     }
 }

@@ -10,7 +10,10 @@ namespace Clinica_Frba.DAO
     public class DAOAfiliadoNew
     {
         public const string selectFrom = "SELECT AFIL_NROAFILIADO Numero, AFIL_APELLIDO Apellido, AFIL_NOMBRE Nombre, "
-                                       + "AFIL_SEXO Sexo, AFIL_DNI DNI, AFIL_MAIL Email, AFIL_DIRE Direccion, AFIL_PLAN 'Plan', "
+                                       + "AFIL_SEXO Sexo, AFIL_ACTIVO 'A', "
+                                       + "(SELECT TIDO_NOMBRE FROM CIPHER.TIPO_DOCUMENTO WHERE TIDO_CODIGO = AFIL_TIPODOCUMENTO) 'Tipo Doc' , " 
+                                       + "AFIL_DOCUMENTO 'Nro Doc', AFIL_MAIL Email, AFIL_DIRE Direccion, "
+                                       + "AFIL_PLAN 'Plan', "
                                        + "AFIL_FECHANAC 'Fecha Nacimiento', AFIL_TELEFONO Telefono, "
                                        + "AFIL_ESTADOCIVIL 'Estado Civil', AFIL_CANTFAMILIARES 'Cant Familiares'"
                                        + "FROM CIPHER.AFILIADO";
@@ -27,7 +30,8 @@ namespace Clinica_Frba.DAO
         public bool activo;
         public string nombre;
         public string apellido;
-        public Decimal dni;
+        public int tipoDocumento;
+        public Decimal documento;
         public string direccion;
         public string email;
         public DateTime fechaNacimiento;
@@ -39,18 +43,18 @@ namespace Clinica_Frba.DAO
         public DAOAfiliadoNew()
         {
             plan = 0; activo = true; nombre = ""; apellido = "";
-            dni = 0; direccion = ""; email = ""; fechaNacimiento = DateTime.Today;
-            telefono = 0; estadoCivil = "Soltero/a"; cantFamiliares = 0;
-            sexo = 'F';
+            tipoDocumento = 1; documento = 0; direccion = ""; email = ""; 
+            fechaNacimiento = SqlConnector.fecha; telefono = 0; estadoCivil = "Soltero/a"; 
+            cantFamiliares = 0; sexo = 'F';
         }
 
         public virtual void save()
         {
             nro = (int)SqlConnector.callScalarFunction("PROXIMONROAFILIADO");
-            SqlConnector.insert("AFILIADO", "AFIL_NROAFILIADO, AFIL_APELLIDO, AFIL_NOMBRE, AFIL_DNI, AFIL_MAIL, " +
-                                "AFIL_DIRE, AFIL_PLAN, AFIL_FECHANAC, AFIL_TELEFONO, AFIL_ESTADOCIVIL, " +
+            SqlConnector.insert("AFILIADO", "AFIL_NROAFILIADO, AFIL_APELLIDO, AFIL_NOMBRE, AFIL_TIPODOCUMENTO, AFIL_DOCUMENTO, " +
+                                "AFIL_MAIL, AFIL_DIRE, AFIL_PLAN, AFIL_FECHANAC, AFIL_TELEFONO, AFIL_ESTADOCIVIL, " +
                                 "AFIL_CANTFAMILIARES, AFIL_SEXO",
-                                nro, apellido, nombre, dni, email, direccion, plan, fechaNacimiento, telefono,
+                                nro, apellido, nombre, tipoDocumento, documento, email, direccion, plan, fechaNacimiento, telefono,
                                 estadoCivil, cantFamiliares, sexo);
             int n = 2;
             if (estadoCivil == "Casado/a" || estadoCivil == "Concubinato")
