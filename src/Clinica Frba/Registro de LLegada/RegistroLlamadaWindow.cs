@@ -22,5 +22,10 @@ namespace Clinica_Frba.Registro_de_llegada
             dtgTurnos.DataSource = DAOAgenda.turnosHoy(txtNroMedico.IntValue);
             dtgTurnos.Columns["Código"].Visible = false;
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

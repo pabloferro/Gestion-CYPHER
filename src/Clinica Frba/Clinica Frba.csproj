@@ -72,6 +72,7 @@
     <Compile Include="Compra de Bono\ConfimarCompra.Designer.cs">
       <DependentUpon>ConfimarCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DAOAtencionMedica.cs" />
     <Compile Include="DAO\DAOCompraBonos.cs" />
     <Compile Include="DAO\DAOAfiliadoFamiliar.cs" />
     <Compile Include="DAO\DAOAfiliadoNew.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DAO\DAOAgenda.cs" />
     <Compile Include="DAO\DAOPlan.cs" />
     <Compile Include="DAO\DAORol.cs" />
+    <Compile Include="DAO\DAOTurnos.cs" />
     <Compile Include="DAO\SqlConnector.cs" />
     <Compile Include="DAO\DAOUser.cs" />
     <Compile Include="Lectura Ini\IniFile.cs" />
@@ -261,6 +263,9 @@
     <EmbeddedResource Include="Archivo Configuracion.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registro Resultado Atencion\SintomaEnfermedadWin.resx">
+      <DependentUpon>SintomaEnfermedadWin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Clinica_Frba.Abm_de_Afiliado.Afiliado.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -270,6 +275,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Registro Resultado Atencion\SintomaEnfermedadWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Resultado Atencion\SintomaEnfermedadWin.Designer.cs">
+      <DependentUpon>SintomaEnfermedadWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Varios\DialogResult.cs" />
     <Compile Include="Varios\NumericTextBox.cs">

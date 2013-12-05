@@ -106,5 +106,10 @@ namespace Clinica_Frba.Abm_de_Afiliado
         {
             this.Close();
         }
+
+        private void Afiliado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
