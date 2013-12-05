@@ -24,7 +24,6 @@ namespace Clinica_Frba.Abm_de_afiliado
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
             String filters = "";
             filters += " AFIL_NOMBRE like '%" + txtNombre.Text + "%'";
             filters += " AND ";
@@ -36,6 +35,7 @@ namespace Clinica_Frba.Abm_de_afiliado
                 filters += "AFIL_ACTIVO = 1";
 
             dtgAfiliados.DataSource = DAOAfiliadoNew.select(filters);
+            dtgAfiliados.Columns["A"].Visible = false;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -57,10 +57,11 @@ namespace Clinica_Frba.Abm_de_afiliado
                 DAOAfiliado afiliado = new DAOAfiliado(
                     (int)selectedRow.Cells["Numero"].Value,
                     (int)selectedRow.Cells["Plan"].Value,
-                    (bool)true,
+                    (bool)((int)selectedRow.Cells["A"].Value==1),
                     (string)selectedRow.Cells["Nombre"].Value,
                     (string)selectedRow.Cells["Apellido"].Value,
-                    (int)selectedRow.Cells["Dni"].Value,
+                    DAODocumento.codigo(selectedRow.Cells["Tipo Doc"].Value.ToString()),
+                    (int)selectedRow.Cells["Nro Doc"].Value,
                     (string)selectedRow.Cells["Direccion"].Value,
                     (string)selectedRow.Cells["Email"].Value,
                     (DateTime)selectedRow.Cells["Fecha Nacimiento"].Value,

@@ -26,20 +26,20 @@ namespace Clinica_Frba.DAO
             SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columnasBaja, 0, SqlConnector.fecha);
         }
 
-        private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_DNI", "AFIL_MAIL", 
+        private static string[] columns = {"AFIL_APELLIDO", "AFIL_NOMBRE", "AFIL_TIPODOCUMENTO", "AFIL_DOCUMENTO", "AFIL_MAIL", 
                                            "AFIL_DIRE", "AFIL_TELEFONO", "AFIL_ESTADOCIVIL", "AFIL_CANTFAMILIARES",
                                            "AFIL_SEXO"};
         public decimal plan_anterior;
-        public DAOAfiliado(int _nro, int _plan, bool _activo, string _nombre, string _apellido, Decimal _dni, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono, string _estadoCivil, int _cantFamiliares, char _sexo)
+        public DAOAfiliado(int _nro, int _plan, bool _activo, string _nombre, string _apellido, int _tipoDocumento, Decimal _documento, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono, string _estadoCivil, int _cantFamiliares, char _sexo)
         {
             nro = _nro; plan = _plan; plan_anterior = _plan; activo = _activo; nombre = _nombre; apellido = _apellido;
-            dni = _dni; direccion = _direccion; email = _email; fechaNacimiento = _fechaNacimiento;
+            tipoDocumento = _tipoDocumento; documento = _documento; direccion = _direccion; email = _email; fechaNacimiento = _fechaNacimiento;
             telefono = _telefono; estadoCivil = _estadoCivil; cantFamiliares = _cantFamiliares; sexo = _sexo;
         }
 
         public override void save()
         {
-            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, apellido, nombre, dni, email,
+            SqlConnector.update("AFILIADO", "AFIL_NROAFILIADO", nro, columns, apellido, nombre, tipoDocumento, documento, email,
                                                     direccion, telefono, estadoCivil, cantFamiliares, sexo);
             if (plan != plan_anterior)
             {
