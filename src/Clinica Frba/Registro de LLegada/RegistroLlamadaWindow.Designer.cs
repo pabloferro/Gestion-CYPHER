@@ -33,12 +33,16 @@
             this.txtNroMedico = new System.Windows.Forms.NumericTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtgTurnos = new System.Windows.Forms.DataGridView();
+            this.numericTextBox1 = new System.Windows.Forms.NumericTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTurnos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(253, 272);
+            this.btnSalir.Location = new System.Drawing.Point(253, 305);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 81;
@@ -87,11 +91,51 @@
             this.dtgTurnos.Size = new System.Drawing.Size(316, 198);
             this.dtgTurnos.TabIndex = 77;
             // 
+            // numericTextBox1
+            // 
+            this.numericTextBox1.AllowSpace = false;
+            this.numericTextBox1.Location = new System.Drawing.Point(118, 270);
+            this.numericTextBox1.Name = "numericTextBox1";
+            this.numericTextBox1.Size = new System.Drawing.Size(209, 20);
+            this.numericTextBox1.TabIndex = 82;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 84;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 277);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 13);
+            this.label3.TabIndex = 85;
+            this.label3.Text = "BONO CONSULTA";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // RegistroLlegadaWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 306);
+            this.ClientSize = new System.Drawing.Size(339, 340);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericTextBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.txtNroMedico);
@@ -112,5 +156,9 @@
         private System.Windows.Forms.NumericTextBox txtNroMedico;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgTurnos;
+        private System.Windows.Forms.NumericTextBox numericTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
