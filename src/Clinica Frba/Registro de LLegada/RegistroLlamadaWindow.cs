@@ -31,23 +31,29 @@ namespace Clinica_Frba.Registro_de_llegada
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            int turno;
+            
             if (txtNroAfiliado.Text == "")
                 MessageBox.Show("Debe ingresar un nro de Afiliado");
-            else if ((turno = DAOAfiliado.turnoEnFecha(txtNroMedico.IntValue, txtNroAfiliado.IntValue)) == -1)
-                MessageBox.Show("El afiliado ingresado no tiene turno para este médico en esta fecha");
             else
-                if (txtBono.Text == "")
-                    MessageBox.Show("Debe ingresar un Bono de Consulta");
+            {
+                int turno = DAOAfiliado.turnoEnFecha(txtNroMedico.IntValue, txtNroAfiliado.IntValue);
+                if ((turno) == -1)
+                    MessageBox.Show("El afiliado ingresado no tiene turno para este médico en esta fecha");
+                else if ((turno) == -2)
+                    MessageBox.Show("El afiliado está inactivo");
                 else
-                    if (!DAOAfiliado.bonoValido(txtNroAfiliado.IntValue, txtBono.IntValue))
-                        MessageBox.Show("El bono ingresado no es válido. (usado, está vencido o no corresponde al grupo familiar)");
+                    if (txtBono.Text == "")
+                        MessageBox.Show("Debe ingresar un Bono de Consulta");
                     else
-                    {
-                        DAOAfiliado.registrarLlegada(txtNroAfiliado.IntValue, turno, txtNroMedico.IntValue);
-                        MessageBox.Show("Llegada registrada!");
-                        this.Close();
-                    }
+                        if (!DAOAfiliado.bonoValido(txtNroAfiliado.IntValue, txtBono.IntValue))
+                            MessageBox.Show("El bono ingresado no es válido. (usado, está vencido o no corresponde al grupo familiar)");
+                        else
+                        {
+                            DAOAfiliado.registrarLlegada(txtNroAfiliado.IntValue, turno, txtNroMedico.IntValue);
+                            MessageBox.Show("Llegada registrada!");
+                            this.Close();
+                        }
+            }
         }
 
         private void RegistroLlegadaWindow_Load(object sender, EventArgs e)

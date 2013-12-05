@@ -48,26 +48,30 @@ namespace Clinica_Frba.Pedir_Turno
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dtgFechas.SelectedRows.GetEnumerator().MoveNext())
-            {
-                DataGridViewRow selectedRowF = dtgFechas.SelectedRows[0];
-                if (selectedRowF.Cells["Fecha"].Value != null)
+            if (txtNroAfiliado.Text == "" || !DAOAfiliado.afiliadoValido(txtNroAfiliado.IntValue))
+                MessageBox.Show("Afiliado inválido");
+            else
+                if (dtgFechas.SelectedRows.GetEnumerator().MoveNext())
                 {
-                    if (dtgTurnos.SelectedRows.GetEnumerator().MoveNext())
+                    DataGridViewRow selectedRowF = dtgFechas.SelectedRows[0];
+                    if (selectedRowF.Cells["Fecha"].Value != null)
                     {
-                        DataGridViewRow selectedRowT = dtgTurnos.SelectedRows[0];
-                        if (selectedRowT.Cells["Desde"].Value != null)
+                        if (dtgTurnos.SelectedRows.GetEnumerator().MoveNext())
                         {
-                            DAOAgenda.pedirTurno(txtNumero.IntValue, txtNroAfiliado.IntValue,
-                                (DateTime)selectedRowF.Cells["Fecha"].Value,
-                                (TimeSpan)selectedRowT.Cells["Desde"].Value);
-                            MessageBox.Show("Turno registrado");
-                            this.Close();
+                            DataGridViewRow selectedRowT = dtgTurnos.SelectedRows[0];
+                            if (selectedRowT.Cells["Desde"].Value != null)
+                            {
+                                DAOAgenda.pedirTurno(txtNumero.IntValue, txtNroAfiliado.IntValue,
+                                    (DateTime)selectedRowF.Cells["Fecha"].Value,
+                                    (TimeSpan)selectedRowT.Cells["Desde"].Value);
+                                MessageBox.Show("Turno registrado");
+                                this.Close();
+                            }
                         }
                     }
                 }
-            }else
-                MessageBox.Show("Debe seleccionar un turno");
+                else
+                    MessageBox.Show("Debe seleccionar un turno");
         }
     }
 }

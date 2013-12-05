@@ -89,29 +89,35 @@ namespace Clinica_Frba.Abm_de_Afiliado
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            afiliado.nombre = txtNombre.Text;
-            afiliado.apellido = txtApellido.Text;
-            afiliado.tipoDocumento = DAODocumento.codigo(cmbTipoDocumento.Text);
-            afiliado.documento = txtNroDocumento.DecimalValue;
-            afiliado.plan = Decimal.Parse(txtPlan.Text);
-            afiliado.email = txtEmail.Text;
-            afiliado.direccion = txtDireccion.Text;
-            afiliado.telefono = txtTelefono.DecimalValue;
-            afiliado.fechaNacimiento = dtpFechaNacimiento.Value;
-            afiliado.cantFamiliares = txtCantFamiliares.IntValue;
-            afiliado.estadoCivil = txtEstadoCivil.Text;
-            if (rdbF.Checked)
-                afiliado.sexo = 'F';
-            else
-                afiliado.sexo = 'M';
-            if (DAODocumento.afiliadoDocumentoValido(afiliado.tipoDocumento, afiliado.documento))
-            {
-                afiliado.save();
-                this.Close();
-            }
+            if (txtNombre.Text == "" || txtApellido.Text == "" || txtNroDocumento.Text == "" ||
+                txtDireccion.Text == "" || txtTelefono.Text == "" || txtCantFamiliares.Text == "")
+                MessageBox.Show("Todos los campos son obligatorios", "Error");
             else
             {
-                MessageBox.Show("Ya hay un afiliado con ese tipo y número de documento");
+                afiliado.nombre = txtNombre.Text;
+                afiliado.apellido = txtApellido.Text;
+                afiliado.tipoDocumento = DAODocumento.codigo(cmbTipoDocumento.Text);
+                afiliado.documento = txtNroDocumento.DecimalValue;
+                afiliado.plan = Decimal.Parse(txtPlan.Text);
+                afiliado.email = txtEmail.Text;
+                afiliado.direccion = txtDireccion.Text;
+                afiliado.telefono = txtTelefono.DecimalValue;
+                afiliado.fechaNacimiento = dtpFechaNacimiento.Value;
+                afiliado.cantFamiliares = txtCantFamiliares.IntValue;
+                afiliado.estadoCivil = txtEstadoCivil.Text;
+                if (rdbF.Checked)
+                    afiliado.sexo = 'F';
+                else
+                    afiliado.sexo = 'M';
+                if (DAODocumento.afiliadoDocumentoValido(afiliado.tipoDocumento, afiliado.documento))
+                {
+                    afiliado.save();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ya hay un afiliado con ese tipo y número de documento");
+                }
             }
         }
 

@@ -25,8 +25,13 @@ namespace Clinica_Frba.Cancelar_Atencion
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            dtgTurnos.DataSource = DAOAfiliado.turnosAsignados(txtNroAfiliado.IntValue);
-            dtgTurnos.Columns["Código"].Visible = false;
+            if (txtNroAfiliado.Text == "" || !DAOAfiliado.afiliadoValido(txtNroAfiliado.IntValue))
+                MessageBox.Show("Afiliado inválido");
+            else
+            {
+                dtgTurnos.DataSource = DAOAfiliado.turnosAsignados(txtNroAfiliado.IntValue);
+                dtgTurnos.Columns["Código"].Visible = false;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

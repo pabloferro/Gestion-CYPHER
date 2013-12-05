@@ -29,20 +29,20 @@ namespace Clinica_Frba
             {
                 switch (funcionalidades.Rows[i].Field<int>(0))
                 {
-                    case 1: menuStrip1.Items.Add("Roles"); break;
-                    case 2: menuStrip1.Items.Add("Usuarios"); break;
-                    case 3: menuStrip1.Items.Add("Afiliados"); break;
-                    case 4: menuStrip1.Items.Add("Profesionales"); break;
-                    case 5: menuStrip1.Items.Add("Especialidades"); break;
-                    case 6: menuStrip1.Items.Add("Planes"); break;
-                    case 7: menuStrip1.Items.Add("Agenda"); break;
-                    case 8: menuStrip1.Items.Add("Compra Bonos"); break;
-                    case 9: menuStrip1.Items.Add("Turnos"); break;
-                    case 10: menuStrip1.Items.Add("Registro de Llegada"); break;
-                    case 11: menuStrip1.Items.Add("Atencion"); break;
-                    case 12: menuStrip1.Items.Add("Cancelar Turnos"); break;
-                    case 13: menuStrip1.Items.Add("Generar Recetas"); break;
-                    case 14: menuStrip1.Items.Add("Estadisticas"); break;
+                    case 1: menuStrip1.Items.Add("1)Roles"); break;
+                    case 2: menuStrip1.Items.Add("3)Usuarios").Enabled = false; break;
+                    case 3: menuStrip1.Items.Add("4)Afiliados"); break;
+                    case 4: menuStrip1.Items.Add("5)Profesionales"); break;
+                    case 5: menuStrip1.Items.Add("6)Especialidades").Enabled = false; break;
+                    case 6: menuStrip1.Items.Add("7)Planes").Enabled = false; break;
+                    case 7: menuStrip1.Items.Add("8)Agenda"); break;
+                    case 8: menuStrip1.Items.Add("9)Compra Bonos"); break;
+                    case 9: menuStrip1.Items.Add("10)Turnos"); break;
+                    case 10: menuStrip1.Items.Add("11)Registro de Llegada"); break;
+                    case 11: menuStrip1.Items.Add("12)Atencion"); break;
+                    case 12: menuStrip1.Items.Add("13)Cancelar Turnos"); break;
+                    case 13: menuStrip1.Items.Add("14)Generar Recetas"); break;
+                    case 14: menuStrip1.Items.Add("15)Estadisticas"); break;
                 }
                     
             }
@@ -54,22 +54,20 @@ namespace Clinica_Frba
 
             switch(funcionalidad)
             {
-                case "Roles": new Abm_de_Rol.RolWindow().ShowDialog(); break;
-                case "Afiliados": new Abm_de_afiliado.AfiliadoListadoWindow().ShowDialog(); break;
-                case "Profesionales": new Abm_de_Profesional.ProfesionalWindow().ShowDialog(); break;
-                case "Especialidades": new Abm_de_Especialidades_Medicas.EspecialidadesWindow().ShowDialog(); break;
-                case "Planes": new Abm_de_Planes.PlanesWindow().ShowDialog(); break;
-                case "Agenda": new Registrar_Agenda.RegistroAgendaWindow().ShowDialog(); break;
-                case "Compra Bonos":new Compra_De_Bono.CompraBonosWindow().ShowDialog(); break;
-                case "Turnos" :new Pedir_Turno.PedirTurnoWindow().ShowDialog();break;
-                case "Registro de Llegada": new Registro_de_llegada.RegistroLlegadaWindow().ShowDialog(); break;
-                case "Atencion": new Registro_Resultado_Atencion.RegistroAtencionWindow().ShowDialog(); break;
-                case "Cancelar Turnos": new Cancelar_Atencion.CancelacionMedicoWindow().ShowDialog(); break;
-                case "Generar Recetas": new Generar_Receta.GenerarRecetaWindow().ShowDialog(); break;
-                case "Estadisticas": new Listados_Entadisticos.EstadisticasWindow().ShowDialog(); break;
-
+                case "1)Roles": new Abm_de_Rol.RolWindow().ShowDialog(); break;
+                case "4)Afiliados": new Abm_de_afiliado.AfiliadoListadoWindow().ShowDialog(); break;
+                case "5)Profesionales": new Abm_de_Profesional.ProfesionalWindow().ShowDialog(); break;
+                case "6)Especialidades": new Abm_de_Especialidades_Medicas.EspecialidadesWindow().ShowDialog(); break;
+                case "7)Planes": new Abm_de_Planes.PlanesWindow().ShowDialog(); break;
+                case "8)Agenda": new Registrar_Agenda.RegistroAgendaWindow().ShowDialog(); break;
+                case "9)Compra Bonos":new Compra_De_Bono.CompraBonosWindow().ShowDialog(); break;
+                case "10)Pedido de Turno" :new Pedir_Turno.PedirTurnoWindow().ShowDialog();break;
+                case "11)Registro de Llegada": new Registro_de_llegada.RegistroLlegadaWindow().ShowDialog(); break;
+                case "12)Atencion": new Registro_Resultado_Atencion.RegistroAtencionWindow().ShowDialog(); break;
+                case "13)Cancelar Turnos": new Cancelar_Atencion.CancelacionWindow().ShowDialog(); break;
+                case "14)Generar Recetas": new Generar_Receta.GenerarRecetaWindow().ShowDialog(); break;
+                case "15)Estadisticas": new Listados_Entadisticos.EstadisticasWindow().ShowDialog(); break;
             }
-            
         }
 
     }

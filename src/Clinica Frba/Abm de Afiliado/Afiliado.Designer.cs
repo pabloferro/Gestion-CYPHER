@@ -44,16 +44,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPlan = new System.Windows.Forms.ComboBox();
-            this.txtTelefono = new System.Windows.Forms.NumericTextBox();
-            this.txtNroDocumento = new System.Windows.Forms.NumericTextBox();
             this.txtEstadoCivil = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCantFamiliares = new System.Windows.Forms.NumericTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.rdbF = new System.Windows.Forms.RadioButton();
             this.rdbM = new System.Windows.Forms.RadioButton();
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.txtCantFamiliares = new System.Windows.Forms.NumericTextBox();
+            this.txtTelefono = new System.Windows.Forms.NumericTextBox();
+            this.txtNroDocumento = new System.Windows.Forms.NumericTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -196,22 +196,6 @@
             this.txtPlan.Size = new System.Drawing.Size(218, 21);
             this.txtPlan.TabIndex = 9;
             // 
-            // txtTelefono
-            // 
-            this.txtTelefono.AllowSpace = false;
-            this.txtTelefono.Location = new System.Drawing.Point(65, 250);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(221, 20);
-            this.txtTelefono.TabIndex = 8;
-            // 
-            // txtNroDocumento
-            // 
-            this.txtNroDocumento.AllowSpace = false;
-            this.txtNroDocumento.Location = new System.Drawing.Point(123, 56);
-            this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(160, 20);
-            this.txtNroDocumento.TabIndex = 2;
-            // 
             // txtEstadoCivil
             // 
             this.txtEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -235,14 +219,6 @@
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Estado civil";
-            // 
-            // txtCantFamiliares
-            // 
-            this.txtCantFamiliares.AllowSpace = false;
-            this.txtCantFamiliares.Location = new System.Drawing.Point(139, 175);
-            this.txtCantFamiliares.Name = "txtCantFamiliares";
-            this.txtCantFamiliares.Size = new System.Drawing.Size(147, 20);
-            this.txtCantFamiliares.TabIndex = 5;
             // 
             // label10
             // 
@@ -292,6 +268,30 @@
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(45, 21);
             this.cmbTipoDocumento.TabIndex = 26;
+            // 
+            // txtCantFamiliares
+            // 
+            this.txtCantFamiliares.AllowSpace = false;
+            this.txtCantFamiliares.Location = new System.Drawing.Point(139, 175);
+            this.txtCantFamiliares.Name = "txtCantFamiliares";
+            this.txtCantFamiliares.Size = new System.Drawing.Size(147, 20);
+            this.txtCantFamiliares.TabIndex = 5;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.AllowSpace = false;
+            this.txtTelefono.Location = new System.Drawing.Point(65, 250);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(221, 20);
+            this.txtTelefono.TabIndex = 8;
+            // 
+            // txtNroDocumento
+            // 
+            this.txtNroDocumento.AllowSpace = false;
+            this.txtNroDocumento.Location = new System.Drawing.Point(123, 56);
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Size = new System.Drawing.Size(160, 20);
+            this.txtNroDocumento.TabIndex = 2;
             // 
             // Afiliado
             // 
