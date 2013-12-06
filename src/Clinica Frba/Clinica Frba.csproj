@@ -85,6 +85,7 @@
       <DependentUpon>ConfimarCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\DAOAtencionMedica.cs" />
+    <Compile Include="DAO\DAOBusquedaMedico.cs" />
     <Compile Include="DAO\DAOCompraBonos.cs" />
     <Compile Include="DAO\DAOAfiliadoFamiliar.cs" />
     <Compile Include="DAO\DAOAfiliadoNew.cs" />
@@ -279,6 +280,9 @@
     <EmbeddedResource Include="Registro Resultado Atencion\SintomaEnfermedadWin.resx">
       <DependentUpon>SintomaEnfermedadWin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Varios\BuscarMedicoWindow.resx">
+      <DependentUpon>BuscarMedicoWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Clinica_Frba.Abm_de_Afiliado.Afiliado.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -295,6 +299,13 @@
     <Compile Include="Registro Resultado Atencion\SintomaEnfermedadWin.Designer.cs">
       <DependentUpon>SintomaEnfermedadWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Varios\BuscarMedicoWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Varios\BuscarMedicoWindow.Designer.cs">
+      <DependentUpon>BuscarMedicoWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Varios\ConMedico.cs" />
     <Compile Include="Varios\DialogResult.cs" />
     <Compile Include="Varios\NumericTextBox.cs">
       <SubType>Component</SubType>

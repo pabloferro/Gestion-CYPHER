@@ -39,6 +39,7 @@
             this.txtNroAfiliado = new System.Windows.Forms.NumericTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFechas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTurnos)).BeginInit();
             this.SuspendLayout();
@@ -54,9 +55,9 @@
             // 
             // btnVerFechas
             // 
-            this.btnVerFechas.Location = new System.Drawing.Point(243, 12);
+            this.btnVerFechas.Location = new System.Drawing.Point(308, 12);
             this.btnVerFechas.Name = "btnVerFechas";
-            this.btnVerFechas.Size = new System.Drawing.Size(37, 23);
+            this.btnVerFechas.Size = new System.Drawing.Size(37, 22);
             this.btnVerFechas.TabIndex = 56;
             this.btnVerFechas.Text = "OK";
             this.btnVerFechas.UseVisualStyleBackColor = true;
@@ -154,11 +155,22 @@
             this.cmbEspecialidad.Size = new System.Drawing.Size(206, 21);
             this.cmbEspecialidad.TabIndex = 64;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(239, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(63, 22);
+            this.button2.TabIndex = 65;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // PedirTurnoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(393, 350);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.cmbEspecialidad);
             this.Controls.Add(this.txtNroAfiliado);
             this.Controls.Add(this.label4);
@@ -193,5 +205,6 @@
         private System.Windows.Forms.NumericTextBox txtNroAfiliado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbEspecialidad;
+        private System.Windows.Forms.Button button2;
     }
 }

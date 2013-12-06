@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clinica_Frba.DAO;
+using Clinica_Frba.Varios;
 
 namespace Clinica_Frba.Pedir_Turno
 {
-    public partial class PedirTurnoWindow : Form
+    public partial class PedirTurnoWindow : Form, ConMedico
     {
         public PedirTurnoWindow()
         {
@@ -81,5 +82,19 @@ namespace Clinica_Frba.Pedir_Turno
                 else
                     MessageBox.Show("Debe seleccionar un turno");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Varios.BuscarMedicoWindow(this).ShowDialog(this);
+        }
+
+        #region Miembros de ConMedico
+
+        void ConMedico.setMedico(int codigo)
+        {
+            txtNumero.Text = codigo.ToString();
+        }
+
+        #endregion
     }
 }
