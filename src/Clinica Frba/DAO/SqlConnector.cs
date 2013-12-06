@@ -161,14 +161,14 @@ namespace Clinica_Frba.DAO
             SqlDataReader dr;
             DataTable dt = new DataTable();
 
-            try
+            //try
             {
                 dr = cm.ExecuteReader();
                 dt.Load(dr);
             }
-            catch (SqlException)
+            //catch (SqlException)
             {
-                throw new Exception();
+            //    throw new Exception();
             }
             
             return dt;

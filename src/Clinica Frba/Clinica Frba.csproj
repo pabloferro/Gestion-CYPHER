@@ -54,6 +54,12 @@
     <Compile Include="Abm de Afiliado\Afiliado.Designer.cs">
       <DependentUpon>Afiliado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm de Profesional\Medico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm de Profesional\Medico.Designer.cs">
+      <DependentUpon>Medico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm de Profesional\ProfesionalListadoWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="DAO\DAOAfiliado.cs" />
     <Compile Include="DAO\DAOAgenda.cs" />
     <Compile Include="DAO\DAODocumento.cs" />
+    <Compile Include="DAO\DAOEspecialidad.cs" />
+    <Compile Include="DAO\DAOMedico.cs" />
+    <Compile Include="DAO\DAOMedicoNew.cs" />
     <Compile Include="DAO\DAOPlan.cs" />
     <Compile Include="DAO\DAORol.cs" />
     <Compile Include="DAO\DAOTurnos.cs" />
@@ -200,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Planes\PlanesWindow.resx">
       <DependentUpon>PlanesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm de Profesional\Medico.resx">
+      <DependentUpon>Medico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Profesional\ProfesionalListadoWindow.resx">
       <DependentUpon>ProfesionalListadoWindow.cs</DependentUpon>
