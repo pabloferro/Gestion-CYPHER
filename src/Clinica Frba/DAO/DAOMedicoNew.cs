@@ -23,7 +23,7 @@ namespace Clinica_Frba.DAO
             return SqlConnector.select(selectFrom + filtersString);
         }
 
-        public int codigo;
+        public Decimal codigo;
         public int matricula;
         public bool activo;
         public string nombre;
@@ -41,11 +41,12 @@ namespace Clinica_Frba.DAO
             activo = true; nombre = ""; apellido = ""; matricula = 0;
             tipoDocumento = 1; documento = 0; direccion = ""; email = "";
             fechaNacimiento = SqlConnector.fecha; telefono = 0; sexo = 'F';
+            codigo = -1;
         }
 
         public virtual void save()
         {
-            codigo = (int)SqlConnector.insertGetKey("MEDICO", "MED_MATRICULA, MED_APELLIDO, MED_NOMBRE, MED_TIPODOCUMENTO, MED_DOCUMENTO, " +
+            codigo = (Decimal)SqlConnector.insertGetKey("MEDICO", "MED_MATRICULA, MED_APELLIDO, MED_NOMBRE, MED_TIPODOCUMENTO, MED_DOCUMENTO, " +
                                 "MED_MAIL, MED_DIRECCION, MED_FECHANAC, MED_TELEFONO, " +
                                 "MED_SEXO",
                                 matricula, apellido, nombre, tipoDocumento, documento, email, direccion, fechaNacimiento, telefono, sexo);

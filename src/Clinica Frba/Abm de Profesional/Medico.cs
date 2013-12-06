@@ -79,5 +79,37 @@ namespace Clinica_Frba.Abm_de_Profesional
         {
             this.Close();
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "" || txtApellido.Text == "" || txtNroDocumento.Text == "" ||
+                txtDireccion.Text == "" || txtTelefono.Text == "" || txtMatricula.Text == "")
+                MessageBox.Show("Todos los campos son obligatorios", "Error");
+            else
+            {
+                medico.nombre = txtNombre.Text;
+                medico.apellido = txtApellido.Text;
+                medico.tipoDocumento = DAODocumento.codigo(cmbTipoDocumento.Text);
+                medico.documento = txtNroDocumento.DecimalValue;
+                medico.matricula = txtMatricula.IntValue;
+                medico.email = txtEmail.Text;
+                medico.direccion = txtDireccion.Text;
+                medico.telefono = txtTelefono.DecimalValue;
+                medico.fechaNacimiento = dtpFechaNacimiento.Value;
+                if (rdbF.Checked)
+                    medico.sexo = 'F';
+                else
+                    medico.sexo = 'M';
+                if (DAODocumento.medicoDocumentoValido(medico.codigo ,medico.tipoDocumento, medico.documento))
+                {
+                    medico.save();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ya hay un médico con ese tipo y número de documento");
+                }
+            }
+        }
     }
 }

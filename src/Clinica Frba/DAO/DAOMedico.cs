@@ -20,9 +20,9 @@ namespace Clinica_Frba.DAO
         }
 
         private static string[] columns = {"MED_APELLIDO", "MED_NOMBRE", "MED_TIPODOCUMENTO", "MED_DOCUMENTO", "MED_MAIL", 
-                                           "MED_DIRECCION", "MED_TELEFONO", "MED_MATRICULA", "AFIL_SEXO"};
+                                           "MED_DIRECCION", "MED_TELEFONO", "MED_MATRICULA", "MED_SEXO"};
         public decimal plan_anterior;
-        public DAOMedico(int _codigo, int _matricula, bool _activo, string _nombre, string _apellido, int _tipoDocumento, Decimal _documento, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono, char _sexo)
+        public DAOMedico(Decimal _codigo, int _matricula, bool _activo, string _nombre, string _apellido, int _tipoDocumento, Decimal _documento, string _direccion, string _email, DateTime _fechaNacimiento, Decimal _telefono, char _sexo)
         {
             codigo = _codigo; matricula = _matricula; activo = _activo; nombre = _nombre; apellido = _apellido;
             tipoDocumento = _tipoDocumento; documento = _documento; direccion = _direccion; email = _email; fechaNacimiento = _fechaNacimiento;

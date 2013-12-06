@@ -19,8 +19,15 @@ namespace Clinica_Frba.Pedir_Turno
 
         private void btnVerFechas_Click(object sender, EventArgs e)
         {
-            int nroMedico = txtNumero.IntValue;
-            dtgFechas.DataSource = DAOAgenda.fechasTurnos(nroMedico);
+            if (txtNumero.Text == "")
+                MessageBox.Show("Seleccione un médico");
+            else
+            {
+                int nroMedico = txtNumero.IntValue;
+                dtgFechas.DataSource = DAOAgenda.fechasTurnos(nroMedico);
+                DAOEspecialidad.llenarComboMedico(cmbEspecialidad, txtNumero.DecimalValue);
+                cmbEspecialidad.Text = cmbEspecialidad.Items[0].ToString();
+            }
         }
 
         private void dtgFechas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -30,7 +37,7 @@ namespace Clinica_Frba.Pedir_Turno
 
         private void PedirTurnoWindow_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dtgFechas_SelectionChanged(object sender, EventArgs e)
@@ -63,7 +70,8 @@ namespace Clinica_Frba.Pedir_Turno
                             {
                                 DAOAgenda.pedirTurno(txtNumero.IntValue, txtNroAfiliado.IntValue,
                                     (DateTime)selectedRowF.Cells["Fecha"].Value,
-                                    (TimeSpan)selectedRowT.Cells["Desde"].Value);
+                                    (TimeSpan)selectedRowT.Cells["Desde"].Value,
+                                    DAOEspecialidad.codigo(cmbEspecialidad.Text));
                                 MessageBox.Show("Turno registrado");
                                 this.Close();
                             }

@@ -46,6 +46,7 @@ namespace Clinica_Frba.DAO
             tipoDocumento = 1; documento = 0; direccion = ""; email = ""; 
             fechaNacimiento = SqlConnector.fecha; telefono = 0; estadoCivil = "Soltero/a"; 
             cantFamiliares = 0; sexo = 'F';
+            nro = -1;
         }
 
         public virtual void save()

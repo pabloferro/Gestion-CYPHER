@@ -37,7 +37,7 @@ namespace Clinica_Frba
                     case 6: menuStrip1.Items.Add("7)Planes").Enabled = false; break;
                     case 7: menuStrip1.Items.Add("8)Agenda"); break;
                     case 8: menuStrip1.Items.Add("9)Compra Bonos"); break;
-                    case 9: menuStrip1.Items.Add("10)Turnos"); break;
+                    case 9: menuStrip1.Items.Add("10)Pedido de Turno"); break;
                     case 10: menuStrip1.Items.Add("11)Registro de Llegada"); break;
                     case 11: menuStrip1.Items.Add("12)Atencion"); break;
                     case 12: menuStrip1.Items.Add("13)Cancelar Turnos"); break;

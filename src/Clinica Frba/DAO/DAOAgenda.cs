@@ -25,9 +25,9 @@ namespace Clinica_Frba.DAO
             SqlConnector.insert("TURNO_DISPONIBLE", "TUDI_MEDICO, TUDI_FECHA, TUDI_HORAI", medico, fecha, horaI);
         }
 
-        public static void pedirTurno(int medico, int afiliado, DateTime fecha, TimeSpan horaI)
+        public static void pedirTurno(int medico, int afiliado, DateTime fecha, TimeSpan horaI, int especialidad)
         {
-            SqlConnector.callProcedure("PEDIRTURNO", medico, afiliado, fecha, horaI);
+            SqlConnector.callProcedure("PEDIRTURNO", medico, afiliado, fecha, horaI, especialidad);
         }
 
         public static DataTable fechasTurnos(int medico)
