@@ -310,7 +310,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Medico";
             this.Text = "Profesional";
-            this.Load += new System.EventHandler(this.Medico_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

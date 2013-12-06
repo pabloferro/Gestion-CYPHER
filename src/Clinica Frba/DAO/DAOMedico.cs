@@ -33,7 +33,14 @@ namespace Clinica_Frba.DAO
         {
             SqlConnector.update("MEDICO", "MED_CODIGO", codigo, columns, apellido, nombre, tipoDocumento, documento, email,
                                                     direccion, telefono, matricula, sexo);
-            //ESPECIALIDADES
+            foreach (int f in especialidadesAgregadas)
+            {
+                SqlConnector.callProcedure("UPDATEMEDICOESPECIALIDAD", codigo, f, 1);
+            }
+            foreach (int f in especialidadesRemovidas)
+            {
+                SqlConnector.callProcedure("UPDATEMEDICOESPECIALIDAD", codigo, f, 0);
+            }
         }
 
         public static bool medicoActivo(int medico)
