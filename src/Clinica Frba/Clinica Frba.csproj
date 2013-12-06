@@ -93,6 +93,7 @@
     <Compile Include="DAO\DAOAgenda.cs" />
     <Compile Include="DAO\DAODocumento.cs" />
     <Compile Include="DAO\DAOEspecialidad.cs" />
+    <Compile Include="DAO\DAOEstadisticas.cs" />
     <Compile Include="DAO\DAOMedico.cs" />
     <Compile Include="DAO\DAOMedicoNew.cs" />
     <Compile Include="DAO\DAOPlan.cs" />

@@ -9,6 +9,20 @@ namespace Clinica_Frba.DAO
 {
     public class DAOMedicoNew
     {
+
+        public List<int> especialidadesAgregadas;
+        public List<int> especialidadesRemovidas;
+
+        public void addEspecialidad(int e)
+        {
+            especialidadesAgregadas.Add(e);
+        }
+
+        public void removeEspecialidad(int e)
+        {
+            especialidadesRemovidas.Add(e);
+        }
+
         public const string selectFrom = "SELECT MED_CODIGO 'Código', MED_APELLIDO Apellido, MED_NOMBRE Nombre, "
                                        + "MED_SEXO Sexo, MED_ACTIVO 'A', "
                                        + "(SELECT TIDO_NOMBRE FROM CIPHER.TIPO_DOCUMENTO WHERE TIDO_CODIGO = MED_TIPODOCUMENTO) 'Tipo Doc' , "
@@ -38,6 +52,8 @@ namespace Clinica_Frba.DAO
 
         public DAOMedicoNew()
         {
+            especialidadesAgregadas = new List<int>();
+            especialidadesRemovidas = new List<int>();
             activo = true; nombre = ""; apellido = ""; matricula = 0;
             tipoDocumento = 1; documento = 0; direccion = ""; email = "";
             fechaNacimiento = SqlConnector.fecha; telefono = 0; sexo = 'F';
@@ -50,6 +66,11 @@ namespace Clinica_Frba.DAO
                                 "MED_MAIL, MED_DIRECCION, MED_FECHANAC, MED_TELEFONO, " +
                                 "MED_SEXO",
                                 matricula, apellido, nombre, tipoDocumento, documento, email, direccion, fechaNacimiento, telefono, sexo);
+            
+            foreach (int e in especialidadesAgregadas)
+            {
+                SqlConnector.insert("ESPECIALIDAD_POR_MEDICO", "ESPMED_MEDICO, ESPMED_ESP", codigo, e);
+            }
         }
     }
 

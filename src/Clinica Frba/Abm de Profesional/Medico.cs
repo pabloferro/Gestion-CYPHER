@@ -44,13 +44,17 @@ namespace Clinica_Frba.Abm_de_Profesional
                 rdbF.Checked = medico.sexo == 'F';
                 rdbM.Checked = medico.sexo == 'M';
             }
-
+            DAOEspecialidad.llenarCombo(lstEspecialidades);
+            llenarEspecialidades(DAOEspecialidad.getEspecialidadesMedico(medico.codigo));
         }
 
          public Medico(DAOMedicoNew medico)
         {
+
             this.medico = medico;
             InitializeComponent();
+            DAOEspecialidad.llenarCombo(lstEspecialidades);
+            DAODocumento.llenarCombo(cmbTipoDocumento);
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
@@ -67,12 +71,18 @@ namespace Clinica_Frba.Abm_de_Profesional
         public Medico()
         {
             InitializeComponent();
-        }
-
-        private void Medico_Load(object sender, EventArgs e)
-        {
             DAOEspecialidad.llenarCombo(lstEspecialidades);
             DAODocumento.llenarCombo(cmbTipoDocumento);
+        }
+
+        private void llenarEspecialidades(DataTable table)
+        {
+            foreach (DataRow row in table.Rows)
+            {
+                int i = lstEspecialidades.Items.IndexOf((string)row["ESP_DESC"]);
+                if(i>=0)
+                    lstEspecialidades.SetItemChecked(i, true);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,6 +110,15 @@ namespace Clinica_Frba.Abm_de_Profesional
                     medico.sexo = 'F';
                 else
                     medico.sexo = 'M';
+                for (int i = 0; i < lstEspecialidades.Items.Count; i++)
+                {
+                    CheckState st = lstEspecialidades.GetItemCheckState(i);
+                    if (st == CheckState.Checked)
+                        medico.addEspecialidad(DAOEspecialidad.codigo(lstEspecialidades.Items[i].ToString()));
+                    else
+                        medico.removeEspecialidad(DAOEspecialidad.codigo(lstEspecialidades.Items[i].ToString()));
+                }
+
                 if (DAODocumento.medicoDocumentoValido(medico.codigo ,medico.tipoDocumento, medico.documento))
                 {
                     medico.save();

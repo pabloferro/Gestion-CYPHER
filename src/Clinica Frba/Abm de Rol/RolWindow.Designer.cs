@@ -157,6 +157,7 @@
             this.dtgRoles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgRoles.Size = new System.Drawing.Size(268, 296);
             this.dtgRoles.TabIndex = 10;
+            this.dtgRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgRoles_CellContentClick);
             // 
             // grpRoles
             // 
