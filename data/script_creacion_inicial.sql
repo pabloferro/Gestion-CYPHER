@@ -310,11 +310,11 @@ INSERT INTO CIPHER.AGENDA_DIA(AGDI_MEDICO,AGDI_DIA,AGDI_HORAI,AGDI_HORAF)
 
 --Carga de todas las compras de bonos
 INSERT INTO CIPHER.COMPRA(COMP_AFILIADO,COMP_FECHA,COMP_PLAN)
-	SELECT DISTINCT (SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO), Compra_Bono_Fecha,Plan_Med_Codigo FROM gd_esquema.Maestra WHERE Bono_Consulta_Numero IS NOT NULL AND Turno_Fecha IS NULL 
+	SELECT (SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO), Compra_Bono_Fecha,Plan_Med_Codigo FROM gd_esquema.Maestra WHERE Compra_Bono_Fecha is not null
 
 --Carga de todos los bonos consulta, el afiliado que consumio se lo deja en null 
 INSERT INTO CIPHER.BONOCONSULTA(BONC_CODIGO,BONC_FECHAIMPRESION,BONC_AFILIADOCONSUMIO,BONC_COMPRA)
-	SELECT DISTINCT Bono_Consulta_Numero,Bono_Consulta_Fecha_Impresion,NULL,(SELECT COMP_CODIGO FROM CIPHER.COMPRA WHERE COMP_AFILIADO=(SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO) AND COMP_FECHA=Compra_Bono_Fecha )
+	SELECT DISTINCT Bono_Consulta_Numero,Bono_Consulta_Fecha_Impresion,NULL,(SELECT top 1 COMP_CODIGO FROM CIPHER.COMPRA WHERE COMP_AFILIADO=(SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO) AND COMP_FECHA=Compra_Bono_Fecha )
 	FROM gd_esquema.Maestra WHERE Bono_Consulta_Numero IS NOT NULL AND Turno_Fecha IS NULL
 
 --Update del campo que representa el afiliado que consumio los bono consulta
@@ -343,7 +343,7 @@ WHERE BONC_AFILIADOCONSUMIO IS NOT NULL
 
 --Carga de todos los bonos farmacia, el afiliado que consumio se lo deja en null 
 INSERT INTO CIPHER.BONOFARMACIA(BONF_CODIGO,BONF_FECHAIMPRESION,BONF_AFILIADOCONSUMIO,BONF_COMPRA,BONF_FECHAVENCIMIENTO)
-	SELECT DISTINCT Bono_Farmacia_Numero,Bono_Farmacia_Fecha_Impresion,NULL,(SELECT COMP_CODIGO FROM CIPHER.COMPRA WHERE COMP_AFILIADO=(SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO) AND COMP_FECHA=Compra_Bono_Fecha ),Bono_Farmacia_Fecha_Vencimiento
+	SELECT DISTINCT Bono_Farmacia_Numero,Bono_Farmacia_Fecha_Impresion,NULL,(SELECT top 1 COMP_CODIGO FROM CIPHER.COMPRA WHERE COMP_AFILIADO=(SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO) AND COMP_FECHA=Compra_Bono_Fecha ),Bono_Farmacia_Fecha_Vencimiento
 	FROM gd_esquema.Maestra WHERE Bono_Farmacia_Numero IS NOT NULL AND Turno_Fecha IS NULL
 
 --Update del campo que representa el afiliado que consumio los bono farmacia

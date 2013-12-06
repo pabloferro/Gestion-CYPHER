@@ -95,10 +95,13 @@
     <Compile Include="DAO\DAOMedico.cs" />
     <Compile Include="DAO\DAOMedicoNew.cs" />
     <Compile Include="DAO\DAOPlan.cs" />
+    <Compile Include="DAO\DAOReceta.cs" />
     <Compile Include="DAO\DAORol.cs" />
     <Compile Include="DAO\DAOTurnos.cs" />
     <Compile Include="DAO\SqlConnector.cs" />
     <Compile Include="DAO\DAOUser.cs" />
+    <Compile Include="Generar Receta\BonoFarmacia.cs" />
+    <Compile Include="Generar Receta\Medicamento.cs" />
     <Compile Include="Lectura Ini\IniFile.cs" />
     <Compile Include="Login\LoginRolWindow.cs">
       <SubType>Form</SubType>
