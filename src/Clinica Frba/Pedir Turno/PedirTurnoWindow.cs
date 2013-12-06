@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clinica_Frba.DAO;
+using Clinica_Frba.Varios;
 
 namespace Clinica_Frba.Pedir_Turno
 {
-    public partial class PedirTurnoWindow : Form
+    public partial class PedirTurnoWindow : Form, ConMedico
     {
         public PedirTurnoWindow()
         {
@@ -19,8 +20,15 @@ namespace Clinica_Frba.Pedir_Turno
 
         private void btnVerFechas_Click(object sender, EventArgs e)
         {
-            int nroMedico = txtNumero.IntValue;
-            dtgFechas.DataSource = DAOAgenda.fechasTurnos(nroMedico);
+            if (txtNumero.Text == "")
+                MessageBox.Show("Seleccione un médico");
+            else
+            {
+                int nroMedico = txtNumero.IntValue;
+                dtgFechas.DataSource = DAOAgenda.fechasTurnos(nroMedico);
+                DAOEspecialidad.llenarComboMedico(cmbEspecialidad, txtNumero.DecimalValue);
+                cmbEspecialidad.Text = cmbEspecialidad.Items[0].ToString();
+            }
         }
 
         private void dtgFechas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -30,7 +38,7 @@ namespace Clinica_Frba.Pedir_Turno
 
         private void PedirTurnoWindow_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dtgFechas_SelectionChanged(object sender, EventArgs e)
@@ -63,7 +71,8 @@ namespace Clinica_Frba.Pedir_Turno
                             {
                                 DAOAgenda.pedirTurno(txtNumero.IntValue, txtNroAfiliado.IntValue,
                                     (DateTime)selectedRowF.Cells["Fecha"].Value,
-                                    (TimeSpan)selectedRowT.Cells["Desde"].Value);
+                                    (TimeSpan)selectedRowT.Cells["Desde"].Value,
+                                    DAOEspecialidad.codigo(cmbEspecialidad.Text));
                                 MessageBox.Show("Turno registrado");
                                 this.Close();
                             }
@@ -73,5 +82,19 @@ namespace Clinica_Frba.Pedir_Turno
                 else
                     MessageBox.Show("Debe seleccionar un turno");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Varios.BuscarMedicoWindow(this).ShowDialog(this);
+        }
+
+        #region Miembros de ConMedico
+
+        void ConMedico.setMedico(int codigo)
+        {
+            txtNumero.Text = codigo.ToString();
+        }
+
+        #endregion
     }
 }

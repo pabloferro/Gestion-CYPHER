@@ -30,11 +30,12 @@ namespace Clinica_Frba.Abm_de_Profesional
                 filters += "MED_ACTIVO = 0";
             else
                 filters += "MED_ACTIVO = 1";
-            /*if (cmbEspecialidad.Text != "TODAS")
+            if (cmbEspecialidad.Text != "TODAS")
             {
                 filters += " AND ";
-                filters +=  = " + DAOEspecialidad.codigo(cmbEspecialidad.Text);
-            }*/
+                filters += "EXISTS (SELECT * FROM CIPHER.ESPECIALIDAD_POR_MEDICO WHERE ESPMED_MEDICO = MED_CODIGO AND ESPMED_ESP = " 
+                           + DAOEspecialidad.codigo(cmbEspecialidad.Text).ToString() +")" ;
+            }
 
             if (txtNroDocumento.Text != "")
             {

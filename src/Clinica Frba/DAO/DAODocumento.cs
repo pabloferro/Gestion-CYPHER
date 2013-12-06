@@ -26,15 +26,21 @@ namespace Clinica_Frba.DAO
         internal static void llenarCombo(System.Windows.Forms.ComboBox cmbTipoDocumento)
         {
             DataTable documentos = DAODocumento.getTiposDocumento();
+            cmbTipoDocumento.Items.Clear();
             foreach (DataRow row in documentos.Rows)
             {
                 cmbTipoDocumento.Items.Add(row["TIDO_NOMBRE"]);
             }
         }
 
-        public static bool afiliadoDocumentoValido(int tipo, Decimal nro)
+        public static bool afiliadoDocumentoValido(int nroAfiliado, int tipo, Decimal nro)
         {
-            return ((bool)SqlConnector.callScalarFunctionWithArguments("AFILIADODOCUMENTOVALIDO", tipo, nro));
+            return ((bool)SqlConnector.callScalarFunctionWithArguments("AFILIADODOCUMENTOVALIDO", nroAfiliado, tipo, nro));
+        }
+
+        public static bool medicoDocumentoValido(Decimal codigo, int tipo, Decimal nro)
+        {
+            return ((bool)SqlConnector.callScalarFunctionWithArguments("MEDICODOCUMENTOVALIDO", codigo, tipo, nro));
         }
     }
 }

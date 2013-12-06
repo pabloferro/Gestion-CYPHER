@@ -105,7 +105,7 @@ namespace Clinica_Frba.Abm_de_Afiliado
                     afiliado.sexo = 'F';
                 else
                     afiliado.sexo = 'M';
-                if (DAODocumento.afiliadoDocumentoValido(afiliado.tipoDocumento, afiliado.documento))
+                if (DAODocumento.afiliadoDocumentoValido(afiliado.nro, afiliado.tipoDocumento, afiliado.documento))
                 {
                     afiliado.save();
                     this.Close();

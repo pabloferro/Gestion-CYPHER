@@ -38,6 +38,7 @@
             this.txtNroAfiliado = new System.Windows.Forms.NumericTextBox();
             this.txtBono = new System.Windows.Forms.NumericTextBox();
             this.txtNroMedico = new System.Windows.Forms.NumericTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTurnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             this.btnVer.Location = new System.Drawing.Point(95, 39);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(220, 23);
+            this.btnVer.Size = new System.Drawing.Size(231, 23);
             this.btnVer.TabIndex = 80;
             this.btnVer.Text = "Ver Turnos";
             this.btnVer.UseVisualStyleBackColor = true;
@@ -132,14 +133,25 @@
             this.txtNroMedico.AllowSpace = false;
             this.txtNroMedico.Location = new System.Drawing.Point(95, 13);
             this.txtNroMedico.Name = "txtNroMedico";
-            this.txtNroMedico.Size = new System.Drawing.Size(220, 20);
+            this.txtNroMedico.Size = new System.Drawing.Size(172, 20);
             this.txtNroMedico.TabIndex = 79;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(273, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 20);
+            this.button1.TabIndex = 89;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RegistroLlegadaWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 384);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNroAfiliado);
             this.Controls.Add(this.btnRegistrar);
@@ -152,7 +164,6 @@
             this.Controls.Add(this.dtgTurnos);
             this.Name = "RegistroLlegadaWindow";
             this.Text = "Registro de Llegada";
-            this.Load += new System.EventHandler(this.RegistroLlegadaWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTurnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,5 +182,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericTextBox txtNroAfiliado;
+        private System.Windows.Forms.Button button1;
     }
 }

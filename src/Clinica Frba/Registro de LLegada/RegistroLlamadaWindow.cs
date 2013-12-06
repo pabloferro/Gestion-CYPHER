@@ -11,7 +11,7 @@ using Clinica_Frba.Varios;
 
 namespace Clinica_Frba.Registro_de_llegada
 {
-    public partial class RegistroLlegadaWindow : Form
+    public partial class RegistroLlegadaWindow : Form, ConMedico
     {
         public RegistroLlegadaWindow()
         {
@@ -56,9 +56,14 @@ namespace Clinica_Frba.Registro_de_llegada
             }
         }
 
-        private void RegistroLlegadaWindow_Load(object sender, EventArgs e)
+        public void setMedico(int nro)
         {
+            txtNroMedico.Text = nro.ToString();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Varios.BuscarMedicoWindow(this).ShowDialog(this);
         }
     }
 }
