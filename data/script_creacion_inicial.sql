@@ -353,14 +353,16 @@ INSERT INTO CIPHER.BONOFARMACIA(BONF_CODIGO,BONF_FECHAIMPRESION,BONF_AFILIADOCON
 	SELECT DISTINCT Bono_Farmacia_Numero,Bono_Farmacia_Fecha_Impresion,NULL,(SELECT top 1 COMP_CODIGO FROM CIPHER.COMPRA WHERE COMP_AFILIADO=(SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO) AND COMP_FECHA=Compra_Bono_Fecha ),Bono_Farmacia_Fecha_Vencimiento
 	FROM gd_esquema.Maestra WHERE Bono_Farmacia_Numero IS NOT NULL AND Turno_Fecha IS NULL
 
---Update del campo que representa el afiliado que consumio los bono farmacia
-UPDATE CIPHER.BONOFARMACIA SET BONF_AFILIADOCONSUMIO=(SELECT (SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO)FROM gd_esquema.Maestra WHERE BONF_CODIGO=Bono_Consulta_Numero AND Turno_Fecha IS NOT NULL)
-WHERE (SELECT Turno_Fecha FROM gd_esquema.Maestra WHERE Bono_Farmacia_Numero=BONF_CODIGO AND Turno_Fecha IS NOT NULL) IS NOT NULL
-
 --Carga de todas las atenciones medicas generadas
 INSERT INTO CIPHER.ATENCIONMEDICA(ATENCMED_TURNO,ATENMED_DIAGNOSTICO,ATENMED_SINTOMAS)
 	SELECT DISTINCT Turno_Numero,Consulta_Enfermedades,Consulta_Sintomas
 	FROM gd_esquema.Maestra WHERE Consulta_Enfermedades IS NOT NULL 
+
+--Update del campo que representa el afiliado que consumio los bono farmacia
+UPDATE CIPHER.BONOFARMACIA SET 
+	BONF_AFILIADOCONSUMIO=(SELECT (SELECT TOP 1 AFIL_NROAFILIADO FROM CIPHER.AFILIADO WHERE Paciente_Dni=AFIL_DOCUMENTO)FROM gd_esquema.Maestra WHERE BONF_CODIGO=Bono_Consulta_Numero AND Turno_Fecha IS NOT NULL),
+	BONF_ATENCION = (SELECT Turno_Numero FROM gd_esquema.Maestra WHERE BONF_CODIGO=Bono_Consulta_Numero AND Turno_Fecha IS NOT NULL)
+WHERE (SELECT Turno_Fecha FROM gd_esquema.Maestra WHERE Bono_Farmacia_Numero=BONF_CODIGO AND Turno_Fecha IS NOT NULL) IS NOT NULL
 
 --Carga de todos los medicantos recetados asociandolos a sus correspondientes bonos farmacia
 INSERT INTO CIPHER.MEDICAMENTO_POR_RECETA(MEDREC_RECETA,MEDREC_MEDICAM,MEDREC_CANTIDAD)
