@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clinica_Frba.DAO;
+using System.Globalization;
 
 namespace Clinica_Frba.Listados_Entadisticos
 {
@@ -23,7 +24,17 @@ namespace Clinica_Frba.Listados_Entadisticos
                 MessageBox.Show("Complete todos los campos");
             else
             {
-                dtgListado.DataSource = SqlConnector.callProcedure("top5BonosFVencidos", SqlConnector.fecha, txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
+                switch(txtListado.SelectedIndex)
+                {
+                    case 1:
+                        dtgListado.DataSource = SqlConnector.callProcedure("top5BonosFVencidos", SqlConnector.fecha, txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
+                        break;
+                }
+                dtgListado.Columns["semestre"].Visible = false;
+                for (int i = 1; i <= 6; i++)
+                {
+                    dtgListado.Columns[i.ToString()].HeaderText = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i + 6*(cmbSemestre.SelectedIndex));
+                }
             }
         }
 
