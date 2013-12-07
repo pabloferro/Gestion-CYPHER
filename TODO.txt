@@ -1,10 +1,5 @@
 --TODO--
 *  Actualizar el DER
-*  Agregar 2 perfiles de usuarios
-*  Guardar especialidades de médico
-*  Hacer un form para buscar un profesional (para puntos 10 y 11)
-*  Generar turnos disponibles para los migrados (cómo?) //en la fecha de los turnos está la hora! TUDI_FECHA no tiene que tener horas ni minutos (podría ser un DATE)
 *  Validar que no tenga agenda al crearla
 *  Al modificar afiliado mostrar activo 
-
 *  Validaciones? Ej: que exista el afiliado que pide el turno 

@@ -115,27 +115,32 @@ namespace Clinica_Frba.Registrar_Agenda
         private void btnAlta_Click(object sender, EventArgs e)
         {
             double horasSemanales = 0;
-            int i = 0;
-            for (i = 0; i < 6; i++)
+            if (DAOAgenda.medicoTieneAgenda(txtNumero.IntValue))
+                MessageBox.Show("El médico ya registró su agenda, utilice Cancelar Atención Medica para eliminarla");
+            else
             {
-                if (habilitado[i].Checked)
-                    horasSemanales += (hasta[i].Value - desde[i].Value).TotalHours;
-            }
-            if (horasSemanales > 48)
-                MessageBox.Show("No puede tener más de 48 horas semanales. Actualmente tiene " + horasSemanales.ToString());
-            else if (horasSemanales <= 0)
-                MessageBox.Show("No seleccionó ningún horario");
-            //SI NO TIENE AGENDA YA!!!!
+                int i = 0;
+                for (i = 0; i < 6; i++)
+                {
+                    if (habilitado[i].Checked)
+                        horasSemanales += (hasta[i].Value - desde[i].Value).TotalHours;
+                }
+                if (horasSemanales > 48)
+                    MessageBox.Show("No puede tener más de 48 horas semanales. Actualmente tiene " + horasSemanales.ToString());
+                else if (horasSemanales <= 0)
+                    MessageBox.Show("No seleccionó ningún horario");
+                //SI NO TIENE AGENDA YA!!!!
 
-            DAOAgenda.guardarAgenda(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
-            for (i = 0; i < 6; i++)
-            {
-                if (habilitado[i].Checked)
-                    DAOAgenda.guardarDia(txtNumero.IntValue, i + 1, desde[i].Value, hasta[i].Value);
+                DAOAgenda.guardarAgenda(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
+                for (i = 0; i < 6; i++)
+                {
+                    if (habilitado[i].Checked)
+                        DAOAgenda.guardarDia(txtNumero.IntValue, i + 1, desde[i].Value, hasta[i].Value);
+                }
+                crearTurnosDisponibles(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
+                MessageBox.Show("Agenda registrada");
+                this.Close();
             }
-            crearTurnosDisponibles(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
-            MessageBox.Show("Agenda registrada");
-            this.Close();
         }
 
         public void crearTurnosDisponibles(int nroMedico, DateTime fInicial, DateTime fFinal)

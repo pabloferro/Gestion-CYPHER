@@ -8,6 +8,11 @@ namespace Clinica_Frba.DAO
 {
     public class DAOAgenda
     {
+        public static bool medicoTieneAgenda(int medico)
+        {
+            return (bool)SqlConnector.callScalarFunctionWithArguments("MEDICOTIENEAGENDA", medico); ;
+        }
+
         public static void guardarAgenda(int medico, DateTime fechaI, DateTime fechaF)
         {
             SqlConnector.insert("AGENDA", "AGEN_MEDICO, AGEN_FECHAI, AGEN_FECHAF", medico, fechaI, fechaF);
