@@ -1,5 +1,2 @@
 --TODO--
 *  Actualizar el DER
-*  Validar que no tenga agenda al crearla
-*  Al modificar afiliado mostrar activo 
-*  Validaciones? Ej: que exista el afiliado que pide el turno 
