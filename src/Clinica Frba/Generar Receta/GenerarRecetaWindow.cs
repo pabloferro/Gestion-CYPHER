@@ -59,10 +59,20 @@ namespace Clinica_Frba.Generar_Receta
         private void button_Medicamento_Click(object sender, EventArgs e)
         {
             if (listBox_Bonos.SelectedItem != null)
-            {
+            {               
                 BonoFarmacia bono = (BonoFarmacia)listBox_Bonos.SelectedItem;
-                bono.addMedicamento(new Medicamento(textBox_Medicamento.Text));
-                acualizarVistaBonos();
+                bool repe = false;
+                foreach(Medicamento m in bono.medicamentos)
+                    if (m.codigo == textBox_Medicamento.Text)
+                    {
+                        MessageBox.Show("No podés agregar medicamentos duplicados");
+                        repe=true;
+                    }
+                if (!repe)
+                {
+                    bono.addMedicamento(new Medicamento(textBox_Medicamento.Text));
+                    acualizarVistaBonos();
+                }
             }
         }
 

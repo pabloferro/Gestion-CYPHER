@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtgTurnos = new System.Windows.Forms.DataGridView();
-            this.txtNumero = new System.Windows.Forms.NumericTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtNroAfiliado = new System.Windows.Forms.NumericTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbEspecialidad = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtNroAfiliado = new System.Windows.Forms.NumericTextBox();
+            this.txtNumero = new System.Windows.Forms.NumericTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFechas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTurnos)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             this.dtgFechas.Name = "dtgFechas";
             this.dtgFechas.ReadOnly = true;
             this.dtgFechas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgFechas.Size = new System.Drawing.Size(157, 198);
+            this.dtgFechas.Size = new System.Drawing.Size(229, 198);
             this.dtgFechas.TabIndex = 57;
             this.dtgFechas.SelectionChanged += new System.EventHandler(this.dtgFechas_SelectionChanged);
             this.dtgFechas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgFechas_CellContentClick);
@@ -91,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(172, 65);
+            this.label3.Location = new System.Drawing.Point(244, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 60;
@@ -103,7 +103,7 @@
             this.dtgTurnos.AllowUserToDeleteRows = false;
             this.dtgTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgTurnos.Location = new System.Drawing.Point(175, 81);
+            this.dtgTurnos.Location = new System.Drawing.Point(247, 81);
             this.dtgTurnos.MultiSelect = false;
             this.dtgTurnos.Name = "dtgTurnos";
             this.dtgTurnos.ReadOnly = true;
@@ -111,31 +111,15 @@
             this.dtgTurnos.Size = new System.Drawing.Size(206, 198);
             this.dtgTurnos.TabIndex = 59;
             // 
-            // txtNumero
-            // 
-            this.txtNumero.AllowSpace = false;
-            this.txtNumero.Location = new System.Drawing.Point(96, 12);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(141, 20);
-            this.txtNumero.TabIndex = 54;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(226, 314);
+            this.button1.Location = new System.Drawing.Point(298, 314);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 24);
             this.button1.TabIndex = 61;
             this.button1.Text = "Pedir Turno Seleccionado";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtNroAfiliado
-            // 
-            this.txtNroAfiliado.AllowSpace = false;
-            this.txtNroAfiliado.Location = new System.Drawing.Point(96, 37);
-            this.txtNroAfiliado.Name = "txtNroAfiliado";
-            this.txtNroAfiliado.Size = new System.Drawing.Size(141, 20);
-            this.txtNroAfiliado.TabIndex = 63;
             // 
             // label4
             // 
@@ -150,7 +134,7 @@
             // 
             this.cmbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEspecialidad.FormattingEnabled = true;
-            this.cmbEspecialidad.Location = new System.Drawing.Point(175, 285);
+            this.cmbEspecialidad.Location = new System.Drawing.Point(247, 285);
             this.cmbEspecialidad.Name = "cmbEspecialidad";
             this.cmbEspecialidad.Size = new System.Drawing.Size(206, 21);
             this.cmbEspecialidad.TabIndex = 64;
@@ -165,11 +149,27 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // txtNroAfiliado
+            // 
+            this.txtNroAfiliado.AllowSpace = false;
+            this.txtNroAfiliado.Location = new System.Drawing.Point(96, 37);
+            this.txtNroAfiliado.Name = "txtNroAfiliado";
+            this.txtNroAfiliado.Size = new System.Drawing.Size(141, 20);
+            this.txtNroAfiliado.TabIndex = 63;
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.AllowSpace = false;
+            this.txtNumero.Location = new System.Drawing.Point(96, 12);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(141, 20);
+            this.txtNumero.TabIndex = 54;
+            // 
             // PedirTurnoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 350);
+            this.ClientSize = new System.Drawing.Size(465, 350);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cmbEspecialidad);
             this.Controls.Add(this.txtNroAfiliado);

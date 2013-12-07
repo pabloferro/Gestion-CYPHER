@@ -17,6 +17,7 @@ namespace Clinica_Frba.DAO
         {
             string[] columnasBaja = { "MED_ACTIVO"};
             SqlConnector.update("MEDICO", "MED_CODIGO", nro, columnasBaja, 0);
+            SqlConnector.callProcedure("CANCELARTURNOMEDICOTODOS", nro, "Baja de médico");
         }
 
         private static string[] columns = {"MED_APELLIDO", "MED_NOMBRE", "MED_TIPODOCUMENTO", "MED_DOCUMENTO", "MED_MAIL", 

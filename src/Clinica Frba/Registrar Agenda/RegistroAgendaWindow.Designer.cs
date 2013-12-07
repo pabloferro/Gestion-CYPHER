@@ -176,7 +176,7 @@
             this.dtpHastaLu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHastaLu.Location = new System.Drawing.Point(202, 97);
             this.dtpHastaLu.MaxDate = new System.DateTime(2013, 12, 1, 20, 0, 0, 0);
-            this.dtpHastaLu.MinDate = new System.DateTime(2013, 12, 1, 10, 30, 0, 0);
+            this.dtpHastaLu.MinDate = new System.DateTime(2013, 12, 1, 7, 30, 0, 0);
             this.dtpHastaLu.Name = "dtpHastaLu";
             this.dtpHastaLu.ShowUpDown = true;
             this.dtpHastaLu.Size = new System.Drawing.Size(53, 20);
@@ -199,7 +199,7 @@
             this.dtpHastaMa.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHastaMa.Location = new System.Drawing.Point(202, 120);
             this.dtpHastaMa.MaxDate = new System.DateTime(2013, 12, 1, 20, 0, 0, 0);
-            this.dtpHastaMa.MinDate = new System.DateTime(2013, 12, 1, 10, 30, 0, 0);
+            this.dtpHastaMa.MinDate = new System.DateTime(2013, 12, 1, 7, 30, 0, 0);
             this.dtpHastaMa.Name = "dtpHastaMa";
             this.dtpHastaMa.ShowUpDown = true;
             this.dtpHastaMa.Size = new System.Drawing.Size(53, 20);
@@ -257,7 +257,7 @@
             this.dtpHastaMi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHastaMi.Location = new System.Drawing.Point(202, 143);
             this.dtpHastaMi.MaxDate = new System.DateTime(2013, 12, 1, 20, 0, 0, 0);
-            this.dtpHastaMi.MinDate = new System.DateTime(2013, 12, 1, 10, 30, 0, 0);
+            this.dtpHastaMi.MinDate = new System.DateTime(2013, 12, 1, 7, 30, 0, 0);
             this.dtpHastaMi.Name = "dtpHastaMi";
             this.dtpHastaMi.ShowUpDown = true;
             this.dtpHastaMi.Size = new System.Drawing.Size(53, 20);
@@ -315,7 +315,7 @@
             this.dtpHastaJu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHastaJu.Location = new System.Drawing.Point(202, 166);
             this.dtpHastaJu.MaxDate = new System.DateTime(2013, 12, 1, 20, 0, 0, 0);
-            this.dtpHastaJu.MinDate = new System.DateTime(2013, 12, 1, 10, 30, 0, 0);
+            this.dtpHastaJu.MinDate = new System.DateTime(2013, 12, 1, 7, 30, 0, 0);
             this.dtpHastaJu.Name = "dtpHastaJu";
             this.dtpHastaJu.ShowUpDown = true;
             this.dtpHastaJu.Size = new System.Drawing.Size(53, 20);
@@ -373,7 +373,7 @@
             this.dtpHastaVi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHastaVi.Location = new System.Drawing.Point(202, 189);
             this.dtpHastaVi.MaxDate = new System.DateTime(2013, 12, 1, 20, 0, 0, 0);
-            this.dtpHastaVi.MinDate = new System.DateTime(2013, 12, 1, 10, 30, 0, 0);
+            this.dtpHastaVi.MinDate = new System.DateTime(2013, 12, 1, 7, 30, 0, 0);
             this.dtpHastaVi.Name = "dtpHastaVi";
             this.dtpHastaVi.ShowUpDown = true;
             this.dtpHastaVi.Size = new System.Drawing.Size(53, 20);

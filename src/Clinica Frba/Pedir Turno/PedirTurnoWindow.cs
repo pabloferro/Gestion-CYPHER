@@ -31,11 +31,6 @@ namespace Clinica_Frba.Pedir_Turno
             }
         }
 
-        private void dtgFechas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void PedirTurnoWindow_Load(object sender, EventArgs e)
         {
             
@@ -96,5 +91,10 @@ namespace Clinica_Frba.Pedir_Turno
         }
 
         #endregion
+
+        private void dtgFechas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

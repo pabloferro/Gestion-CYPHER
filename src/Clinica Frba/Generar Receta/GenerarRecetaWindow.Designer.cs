@@ -48,7 +48,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(432, 103);
+            this.monthCalendar1.Location = new System.Drawing.Point(369, 103);
             this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
@@ -85,7 +85,7 @@
             // label_Cantidad
             // 
             this.label_Cantidad.AutoSize = true;
-            this.label_Cantidad.Location = new System.Drawing.Point(480, 50);
+            this.label_Cantidad.Location = new System.Drawing.Point(417, 50);
             this.label_Cantidad.Name = "label_Cantidad";
             this.label_Cantidad.Size = new System.Drawing.Size(49, 13);
             this.label_Cantidad.TabIndex = 6;
@@ -95,7 +95,7 @@
             // label_Fecha
             // 
             this.label_Fecha.AutoSize = true;
-            this.label_Fecha.Location = new System.Drawing.Point(469, 92);
+            this.label_Fecha.Location = new System.Drawing.Point(406, 92);
             this.label_Fecha.Name = "label_Fecha";
             this.label_Fecha.Size = new System.Drawing.Size(98, 13);
             this.label_Fecha.TabIndex = 7;
@@ -133,7 +133,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(539, 48);
+            this.numericUpDown1.Location = new System.Drawing.Point(476, 48);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             3,
             0,

@@ -54,7 +54,13 @@ namespace Clinica_Frba.Abm_de_Profesional
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-
+            if (dtgMedicos.SelectedRows.GetEnumerator().MoveNext())
+            {
+                DAOMedico.baja((int)dtgMedicos.SelectedRows[0].Cells["Código"].Value);
+                MessageBox.Show("Médico dado de baja");
+            }
+            else
+                MessageBox.Show("Seleccione un médico");
         }
 
         private void ProfesionalListadoWindow_Load(object sender, EventArgs e)
