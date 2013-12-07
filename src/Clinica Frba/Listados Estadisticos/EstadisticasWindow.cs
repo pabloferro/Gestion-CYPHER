@@ -26,6 +26,9 @@ namespace Clinica_Frba.Listados_Entadisticos
             {
                 switch(txtListado.SelectedIndex)
                 {
+                    case 0:
+                        dtgListado.DataSource = SqlConnector.callProcedure("top5EspecialidadCancelaciones", txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
+                        break;
                     case 1:
                         dtgListado.DataSource = SqlConnector.callProcedure("top5BonosFVencidos", SqlConnector.fecha, txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
                         break;

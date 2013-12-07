@@ -1037,4 +1037,36 @@ end
 
 GO
 
+CREATE FUNCTION CIPHER.EspecialidadCancelacionesMes(@ESP INT, @ANO INT, @MES INT) RETURNS INT
+AS
+BEGIN
+	RETURN  (select count(*) 
+			 from CIPHER.CANCELACIONTURNO join CIPHER.TURNO on 
+				  CATU_TURNO=TURN_CODIGO and TURN_ESP = @ESP 
+				  where CIPHER.enElMismoAnoYMes(TURN_FECHA, @ANO, @MES) = 1)
+END
+
+GO
+
+create procedure CIPHER.top5EspecialidadCancelaciones(@ANO INT, @SEMESTRE INT)
+as
+begin
+select top 5 
+	(select count(*) 
+	 from CIPHER.CANCELACIONTURNO join CIPHER.TURNO on 
+		  CATU_TURNO=TURN_CODIGO and TURN_ESP = ESP_CODIGO
+		  where CIPHER.FECHAANOYSEMESTRE(TURN_FECHA, @ANO, @SEMESTRE) = 1) as 'semestre',
+	ESP_DESC 'Especialidad',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 1 * @SEMESTRE) AS '1',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 2 * @SEMESTRE) AS '2',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 3 * @SEMESTRE) AS '3',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 4 * @SEMESTRE) AS '4',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 5 * @SEMESTRE) AS '5',
+	CIPHER.EspecialidadCancelacionesMes(ESP_CODIGO, @ANO, 6 * @SEMESTRE) AS '6'
+from CIPHER.ESPECIALIDAD 
+order by 1 desc
+end
+
+GO
+
 COMMIT TRAN
