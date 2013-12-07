@@ -32,6 +32,13 @@ namespace Clinica_Frba.Listados_Entadisticos
                     case 1:
                         dtgListado.DataSource = SqlConnector.callProcedure("top5BonosFVencidos", SqlConnector.fecha, txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
                         break;
+                    case 2:
+                        dtgListado.DataSource = SqlConnector.callProcedure("top5EspecialidadBonoF", txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
+                        break;
+                    case 3:
+                        dtgListado.DataSource = SqlConnector.callProcedure("top10AfiliadosBonosUtilizadosDeOtro", txtAnio.IntValue, cmbSemestre.SelectedIndex + 1);
+                        break;
+                        
                 }
                 dtgListado.Columns["semestre"].Visible = false;
                 for (int i = 1; i <= 6; i++)

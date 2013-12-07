@@ -103,7 +103,12 @@ DROP FUNCTION CIPHER.BonosFVencidosMes
 --
 DROP FUNCTION CIPHER.EspecialidadCancelacionesMes
 DROP procedure CIPHER.top5EspecialidadCancelaciones
-
+--
+DROP FUNCTION CIPHER.BonosUtilizadosDeOtro
+DROP procedure CIPHER.top10AfiliadosBonosUtilizadosDeOtro
+--
+DROP FUNCTION CIPHER.EspecialidadBonoFMes
+DROP procedure CIPHER.top5EspecialidadBonoF
 --/ESTADISTICAS
 
 
