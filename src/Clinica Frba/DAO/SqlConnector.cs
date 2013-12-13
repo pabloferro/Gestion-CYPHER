@@ -20,7 +20,6 @@ namespace Clinica_Frba.DAO
         private static string connectionString = "User id=" + file.IniReadValue("connection", "id") +
             ";Password=" + file.IniReadValue("connection", "pass") +
             ";Server=" + file.IniReadValue("connection", "server") +
-            ";Trusted_Connection=yes" +
             ";database=" + file.IniReadValue("connection", "database") +
             ";connection timeout=10";
 
