@@ -18,9 +18,11 @@ namespace Clinica_Frba.DAO
         public override void save()
         {
             nro = (numeroPadre / 100) * 100 + n;
-            SqlConnector.insert("AFILIADO", "AFIL_NROAFILIADO, AFIL_APELLIDO, AFIL_NOMBRE, AFIL_TIPODOCUMENTO, AFIL_DOCUMENTO, AFIL_MAIL, " +
-                                "AFIL_DIRE, AFIL_PLAN, AFIL_FECHANAC, AFIL_TELEFONO, AFIL_ESTADOCIVIL, AFIL_CANTFAMILIARES",
-                                nro, apellido, nombre, tipoDocumento, documento, email, direccion, plan, fechaNacimiento, telefono, estadoCivil, cantFamiliares);
+            SqlConnector.insert("AFILIADO", "AFIL_NROAFILIADO, AFIL_APELLIDO, AFIL_NOMBRE, AFIL_TIPODOCUMENTO, AFIL_DOCUMENTO, " +
+                    "AFIL_MAIL, AFIL_DIRE, AFIL_PLAN, AFIL_FECHANAC, AFIL_TELEFONO, AFIL_ESTADOCIVIL, " +
+                    "AFIL_CANTFAMILIARES, AFIL_SEXO",
+                    nro, apellido, nombre, tipoDocumento, documento, email, direccion, plan, fechaNacimiento, telefono,
+                    estadoCivil, cantFamiliares, sexo);
         }
     }
 }
