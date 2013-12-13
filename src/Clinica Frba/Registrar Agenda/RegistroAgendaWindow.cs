@@ -129,17 +129,20 @@ namespace Clinica_Frba.Registrar_Agenda
                     MessageBox.Show("No puede tener más de 48 horas semanales. Actualmente tiene " + horasSemanales.ToString());
                 else if (horasSemanales <= 0)
                     MessageBox.Show("No seleccionó ningún horario");
-                //SI NO TIENE AGENDA YA!!!!
-
-                DAOAgenda.guardarAgenda(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
-                for (i = 0; i < 6; i++)
+                else
                 {
-                    if (habilitado[i].Checked)
-                        DAOAgenda.guardarDia(txtNumero.IntValue, i + 1, desde[i].Value, hasta[i].Value);
+                    //SI NO TIENE AGENDA YA!!!!
+
+                    DAOAgenda.guardarAgenda(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
+                    for (i = 0; i < 6; i++)
+                    {
+                        if (habilitado[i].Checked)
+                            DAOAgenda.guardarDia(txtNumero.IntValue, i + 1, desde[i].Value, hasta[i].Value);
+                    }
+                    crearTurnosDisponibles(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
+                    MessageBox.Show("Agenda registrada");
+                    this.Close();
                 }
-                crearTurnosDisponibles(txtNumero.IntValue, dtpFechaInicial.Value, dtpFechaFinal.Value);
-                MessageBox.Show("Agenda registrada");
-                this.Close();
             }
         }
 
