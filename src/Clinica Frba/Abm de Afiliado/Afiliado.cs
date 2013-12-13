@@ -42,6 +42,7 @@ namespace Clinica_Frba.Abm_de_Afiliado
             txtEstadoCivil.Text = afiliado.estadoCivil;
             txtCantFamiliares.Text = afiliado.cantFamiliares.ToString();
             txtCantFamiliares.Enabled = false;
+            rdbF.Checked = true;
             if (afiliado.sexo == 'X')
             {
                 MessageBox.Show("El afiliado actual es migrado, debe completar el estado civil y el sexo.");

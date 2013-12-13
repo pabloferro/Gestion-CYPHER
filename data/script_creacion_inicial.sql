@@ -68,7 +68,7 @@ CREATE TABLE CIPHER.AFILIADO(
 	AFIL_DIRE NVARCHAR(255),
 	AFIL_MAIL NVARCHAR(255),
 	AFIL_FECHANAC DATETIME,
-	AFIL_SEXO CHAR(1) DEFAULT 'X'
+	AFIL_SEXO CHAR(1) DEFAULT 'F'
 )
 
 CREATE TABLE CIPHER.MODIFICACIONPLAN(
@@ -268,8 +268,8 @@ OPEN CAFILIADOS
 FETCH CAFILIADOS INTO @Paciente_Nombre,@Paciente_Apellido,@Paciente_Dni,@Paciente_Direccion,@Paciente_Telefono,@Paciente_Mail,@Paciente_Fecha_Nac,@Plan_Med_Codigo
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	INSERT INTO CIPHER.AFILIADO(AFIL_NROAFILIADO, AFIL_NOMBRE,AFIL_APELLIDO,AFIL_DOCUMENTO,AFIL_DIRE,AFIL_TELEFONO,AFIL_MAIL,AFIL_FECHANAC,AFIL_PLAN) 
-	VALUES(CIPHER.PROXIMONROAFILIADO(),@Paciente_Nombre,@Paciente_Apellido,@Paciente_Dni,@Paciente_Direccion,@Paciente_Telefono,@Paciente_Mail,@Paciente_Fecha_Nac,@Plan_Med_Codigo)
+	INSERT INTO CIPHER.AFILIADO(AFIL_NROAFILIADO, AFIL_NOMBRE,AFIL_APELLIDO,AFIL_DOCUMENTO,AFIL_DIRE,AFIL_TELEFONO,AFIL_MAIL,AFIL_FECHANAC,AFIL_PLAN,AFIL_SEXO) 
+	VALUES(CIPHER.PROXIMONROAFILIADO(),@Paciente_Nombre,@Paciente_Apellido,@Paciente_Dni,@Paciente_Direccion,@Paciente_Telefono,@Paciente_Mail,@Paciente_Fecha_Nac,@Plan_Med_Codigo, 'X')
 	FETCH CAFILIADOS INTO @Paciente_Nombre,@Paciente_Apellido,@Paciente_Dni,@Paciente_Direccion,@Paciente_Telefono,@Paciente_Mail,@Paciente_Fecha_Nac,@Plan_Med_Codigo
 END
 CLOSE CAFILIADOS
