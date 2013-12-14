@@ -20,10 +20,9 @@ namespace Clinica_Frba.DAO
             for(int i=0;i<bono.medicamentos.Count;i++)
             {
                 Medicamento med=bono.medicamentos[i];
-                SqlConnector.insert("MEDICAMENTO_POR_RECETA", "MEDREC_MEDICAM,MEDREC_RECETA,MEDREC_CANTIDAD", med.codigo,bono.codigo, med.cant);
+                if(med.cant>0)
+                    SqlConnector.insert("MEDICAMENTO_POR_RECETA", "MEDREC_MEDICAM,MEDREC_RECETA,MEDREC_CANTIDAD", med.codigo,bono.codigo, med.cant);
             }
-                
-            
         }
     }
 }
