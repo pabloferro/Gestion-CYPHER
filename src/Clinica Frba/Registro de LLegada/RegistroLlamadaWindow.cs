@@ -31,7 +31,6 @@ namespace Clinica_Frba.Registro_de_llegada
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            
             if (txtNroAfiliado.Text == "")
                 MessageBox.Show("Debe ingresar un nro de Afiliado");
             else
@@ -41,6 +40,8 @@ namespace Clinica_Frba.Registro_de_llegada
                     MessageBox.Show("El afiliado ingresado no tiene turno para este médico en esta fecha");
                 else if ((turno) == -2)
                     MessageBox.Show("El afiliado está inactivo");
+                else if ((turno) == -3)
+                    MessageBox.Show("La llegada ya fue registrada");
                 else
                     if (txtBono.Text == "")
                         MessageBox.Show("Debe ingresar un Bono de Consulta");
@@ -49,7 +50,7 @@ namespace Clinica_Frba.Registro_de_llegada
                             MessageBox.Show("El bono ingresado no es válido. (usado, está vencido o no corresponde al grupo familiar)");
                         else
                         {
-                            DAOAfiliado.registrarLlegada(txtNroAfiliado.IntValue, turno, txtNroMedico.IntValue);
+                            DAOAfiliado.registrarLlegada(txtNroAfiliado.IntValue, turno, txtBono.IntValue);
                             MessageBox.Show("Llegada registrada!");
                             this.Close();
                         }

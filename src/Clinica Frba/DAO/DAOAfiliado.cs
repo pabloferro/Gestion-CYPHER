@@ -66,7 +66,7 @@ namespace Clinica_Frba.DAO
 
         public static void registrarLlegada(int afiliado, int turno, int bono)
         {
-            SqlConnector.callProcedure("REGISTRARLLEGADA", afiliado, turno, bono);
+            SqlConnector.callProcedure("REGISTRARLLEGADA", afiliado, turno, bono, SqlConnector.fecha);
         }
 
         public static bool afiliadoActivo(int afiliado)
