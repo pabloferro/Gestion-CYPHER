@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace Clinica_Frba.DAO
@@ -43,6 +44,10 @@ namespace Clinica_Frba.DAO
             {
                 SqlConnector.insert("BONOFARMACIA", "BONF_CODIGO,BONF_COMPRA,BONF_AFILIADOCONSUMIO,BONF_FECHAIMPRESION,BONF_FECHAVENCIMIENTO", ultimoBonoF+i+1,codigoCompra, afil, SqlConnector.fecha,SqlConnector.fecha.AddDays(60));
             }
+            if (cantBonosC > 0)
+                MessageBox.Show("El primer bono consulta es " + (ultimoBonoC + 1).ToString() + ".");
+            if (cantBonosF > 0)
+                MessageBox.Show("El primer bono farmacia es " + (ultimoBonoF + 1).ToString() + ".");
         }
 
         public static bool AfiliadoActivo(int afil)
