@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Clinica_Frba.DAO;
 
 namespace Clinica_Frba.Registro_Resultado_Atencion
 {
@@ -24,7 +25,7 @@ namespace Clinica_Frba.Registro_Resultado_Atencion
 
         private void button_Ok_Click(object sender, EventArgs e)
         {
-            DateTime fecha=DateTime.Now;
+            DateTime fecha= SqlConnector.fecha;
             turno = Convert.ToInt32(textBox1.Text);
             if (DAO.DAOAtencionMedica.yaHayAtencionMedica(turno)) label_Error.Text = "Ya hay una atencion medica del turno solicitado";
             else if (DAO.DAOTurnos.FechaTurno(turno, fecha))

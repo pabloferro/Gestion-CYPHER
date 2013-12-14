@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Clinica_Frba.DAO;
 
 namespace Clinica_Frba.Generar_Receta
 {
@@ -39,7 +40,7 @@ namespace Clinica_Frba.Generar_Receta
             int codigoBono = numericTextBox1.IntValue;
             if (DAO.DAOReceta.vencimientoBonoF(codigoBono, fechaVenc) == -1)
                 label_Error.Text = "El  bono especificado no se encuentra en el sistema";
-            else if (fechaVenc > DateTime.Now)
+            else if (fechaVenc > SqlConnector.fecha)
                 label_Error.Text = "El bono ya vencio en la fecha:" + fechaVenc;
             else
             {

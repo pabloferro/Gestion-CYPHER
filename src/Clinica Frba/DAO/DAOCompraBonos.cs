@@ -31,17 +31,17 @@ namespace Clinica_Frba.DAO
         }
         public static void insertarCompra(int afil,int plan,int cantBonosC,int cantBonosF)
         {
-            SqlConnector.insert("COMPRA", "COMP_FECHA,COMP_AFILIADO,COMP_PLAN", DateTime.Now, afil, plan);
+            SqlConnector.insert("COMPRA", "COMP_FECHA,COMP_AFILIADO,COMP_PLAN", SqlConnector.fecha, afil, plan);
             int codigoCompra = (int)SqlConnector.select("select TOP 1 COMP_CODIGO from CIPHER.COMPRA order by COMP_CODIGO DESC").Rows[0][0];
             int ultimoBonoC = (int)SqlConnector.select("select top 1 BONC_CODIGO from CIPHER.BONOCONSULTA ORDER BY BONC_CODIGO DESC").Rows[0][0];
             int ultimoBonoF = (int)SqlConnector.select("select top 1 BONF_CODIGO from CIPHER.BONOFARMACIA ORDER BY BONF_CODIGO DESC").Rows[0][0];
             for (int i = 0; i < cantBonosC; i++)
             {
-                SqlConnector.insert("BONOCONSULTA", "BONC_CODIGO,BONC_COMPRA,BONC_AFILIADOCONSUMIO,BONC_FECHAIMPRESION", ultimoBonoC+i+1,codigoCompra, afil, DateTime.Now);
+                SqlConnector.insert("BONOCONSULTA", "BONC_CODIGO,BONC_COMPRA,BONC_AFILIADOCONSUMIO,BONC_FECHAIMPRESION", ultimoBonoC+i+1,codigoCompra, afil, SqlConnector.fecha);
             }
             for (int i = 0; i < cantBonosC; i++)
             {
-                SqlConnector.insert("BONOFARMACIA", "BONF_CODIGO,BONF_COMPRA,BONF_AFILIADOCONSUMIO,BONF_FECHAIMPRESION,BONF_FECHAVENCIMIENTO", ultimoBonoF+i+1,codigoCompra, afil, DateTime.Now,DateTime.Now.AddDays(60));
+                SqlConnector.insert("BONOFARMACIA", "BONF_CODIGO,BONF_COMPRA,BONF_AFILIADOCONSUMIO,BONF_FECHAIMPRESION,BONF_FECHAVENCIMIENTO", ultimoBonoF+i+1,codigoCompra, afil, SqlConnector.fecha,SqlConnector.fecha.AddDays(60));
             }
         }
 
