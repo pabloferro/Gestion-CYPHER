@@ -115,7 +115,9 @@ namespace Clinica_Frba.Registrar_Agenda
         private void btnAlta_Click(object sender, EventArgs e)
         {
             double horasSemanales = 0;
-            if (DAOAgenda.medicoTieneAgenda(txtNumero.IntValue))
+            if (txtNumero.Text == "")
+                MessageBox.Show("Ingrese el número de médico");
+            else if (DAOAgenda.medicoTieneAgenda(txtNumero.IntValue))
                 MessageBox.Show("El médico ya registró su agenda, utilice Cancelar Atención Medica para eliminarla");
             else
             {

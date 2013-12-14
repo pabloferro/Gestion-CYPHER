@@ -173,6 +173,6 @@ namespace Clinica_Frba.DAO
             return dt;
         }
 
-        public static DateTime fecha = DateTime.ParseExact(new IniFile(Path.GetFullPath("Archivo Configuracion.ini")).IniReadValue("time", "fechaComienzo"), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+        public static DateTime fecha = DateTime.ParseExact(new IniFile(Path.GetFullPath("Archivo Configuracion.ini")).IniReadValue("time", "fechaComienzo"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
     }
 }

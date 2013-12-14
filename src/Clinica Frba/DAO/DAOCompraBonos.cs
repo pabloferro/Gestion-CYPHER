@@ -38,11 +38,11 @@ namespace Clinica_Frba.DAO
             int ultimoBonoF = (int)SqlConnector.select("select top 1 BONF_CODIGO from CIPHER.BONOFARMACIA ORDER BY BONF_CODIGO DESC").Rows[0][0];
             for (int i = 0; i < cantBonosC; i++)
             {
-                SqlConnector.insert("BONOCONSULTA", "BONC_CODIGO,BONC_COMPRA,BONC_AFILIADOCONSUMIO,BONC_FECHAIMPRESION", ultimoBonoC+i+1,codigoCompra, afil, SqlConnector.fecha);
+                SqlConnector.insert("BONOCONSULTA", "BONC_CODIGO,BONC_COMPRA,BONC_FECHAIMPRESION", ultimoBonoC+i+1,codigoCompra, SqlConnector.fecha);
             }
             for (int i = 0; i < cantBonosC; i++)
             {
-                SqlConnector.insert("BONOFARMACIA", "BONF_CODIGO,BONF_COMPRA,BONF_AFILIADOCONSUMIO,BONF_FECHAIMPRESION,BONF_FECHAVENCIMIENTO", ultimoBonoF+i+1,codigoCompra, afil, SqlConnector.fecha,SqlConnector.fecha.AddDays(60));
+                SqlConnector.insert("BONOFARMACIA", "BONF_CODIGO,BONF_COMPRA,BONF_FECHAIMPRESION,BONF_FECHAVENCIMIENTO", ultimoBonoF+i+1,codigoCompra, SqlConnector.fecha,SqlConnector.fecha.AddDays(60));
             }
             if (cantBonosC > 0)
                 MessageBox.Show("El primer bono consulta es " + (ultimoBonoC + 1).ToString() + ".");
