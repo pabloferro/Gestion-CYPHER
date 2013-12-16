@@ -31,12 +31,20 @@ namespace Clinica_Frba.Generar_Receta
             {
                 this.label_Error.Text = "El bono no es valido";
             }
-            else if (!listBox_Bonos.Items.Contains(numericTextBox1.IntValue))
-            {
-                agregarBono();
-            }
             else
-                label_Error.Text = "No puede haber bonos repetidos";
+            {
+                bool repe = false;
+                foreach (BonoFarmacia b in listBox_Bonos.Items)
+                    if (b.codigo == numericTextBox1.IntValue)
+                    {
+                        MessageBox.Show("No podés agregar bonos duplicados");
+                        repe = true;
+                    }
+                if (!repe)
+                {
+                    agregarBono();
+                }               
+            }
         }
         private void agregarBono()
         {
