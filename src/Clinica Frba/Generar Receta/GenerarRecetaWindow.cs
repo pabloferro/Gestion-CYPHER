@@ -27,6 +27,10 @@ namespace Clinica_Frba.Generar_Receta
         {
             //listBox_Bonos.Items.Add(new BonoFarmacia(numericTextBox1.IntValue));
             if (numericTextBox1.Text.Length == 0) return;
+            else if (DAO.DAOAfiliado.bonoValidoF(this.numericTextBox_Afiliado.IntValue, numericTextBox1.IntValue) == false)
+            {
+                this.label_Error.Text = "El bono no es valido";
+            }
             else if (!listBox_Bonos.Items.Contains(numericTextBox1.IntValue))
             {
                 agregarBono();
@@ -163,6 +167,24 @@ namespace Clinica_Frba.Generar_Receta
                 DAO.DAOReceta.insertarReceta((BonoFarmacia) listBox_Bonos.Items[i]);
             }
             this.Close();
+        }
+
+        private void button_Afiliado_Click(object sender, EventArgs e)
+        {
+            if (DAO.DAOAfiliado.afiliadoValido(this.numericTextBox_Afiliado.IntValue))
+            {
+                this.label1.Visible = true;
+                this.numericTextBox1.Visible = true;
+                this.button_Bono.Visible = true;
+                this.listBox_Bonos.Visible = true;
+                this.label_Error.Text = "";
+                this.numericTextBox_Afiliado.Enabled = false;
+                this.button_Afiliado.Visible = false;
+            }
+            else
+            {
+                this.label_Error.Text = "El afiliado no existe";
+            }
         }
     }
 
