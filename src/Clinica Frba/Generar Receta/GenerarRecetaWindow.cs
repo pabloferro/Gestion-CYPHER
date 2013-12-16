@@ -172,7 +172,7 @@ namespace Clinica_Frba.Generar_Receta
         {
             for(int i=0;i<listBox_Bonos.Items.Count;i++)
             {
-                DAO.DAOReceta.insertarReceta((BonoFarmacia) listBox_Bonos.Items[i]);
+                DAO.DAOReceta.insertarReceta((BonoFarmacia)listBox_Bonos.Items[i], numericTextBox_Afiliado.IntValue);
             }
             this.Close();
         }

@@ -15,8 +15,9 @@ namespace Clinica_Frba.DAO
             else { fechaVencimiento= (DateTime)data.Rows[0][0]; return 1; }
         }
 
-        public static void insertarReceta(BonoFarmacia bono)
+        public static void insertarReceta(BonoFarmacia bono, int afiliado)
         {
+            DAOAfiliado.consumirBonoFarmacia(afiliado, bono.codigo);
             for(int i=0;i<bono.medicamentos.Count;i++)
             {
                 Medicamento med=bono.medicamentos[i];
